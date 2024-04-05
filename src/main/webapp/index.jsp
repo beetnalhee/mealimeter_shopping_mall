@@ -82,7 +82,7 @@
                   <div>
                     <div class="product-img" style="background-image: url(/img/productEx.jpg); background-size: cover; " ></div>
                     <div><a href="">[피코크] 어메이징 부대찌개</a></div>
-                    <div><span class="product-price">19,900</span> 9,900</div>
+                    <div><span class="prgoduct-price">19,900</span> 9,900</div>
                   </div>
                 </li>
               </ul>
