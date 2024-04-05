@@ -1,0 +1,224 @@
+/*-------------------------COMMON---------------------------------*/
+* {
+    margin: 0px;
+    padding: 0px;
+    font-family: "IBM Plex Sans KR";
+}
+
+a{
+    color: black;
+}
+
+ul, li {
+    list-style: none;
+}
+
+fieldset{
+    border: 0px;
+}
+
+/*-------------------------INDEX---------------------------------*/
+
+#wrapper{
+    margin: 0px auto;
+}
+
+#container {
+}
+
+.contents{
+    padding: 10px;
+    margin: 5px;
+    border: 1px solid #b9b9b9;
+    border-radius: 5px;
+}
+
+main{
+    text-align: center;
+    margin: 0px auto;
+}
+
+section {
+}
+
+#index-wrap{
+    padding: 10px;
+    margin: 5px;
+    border: 1px solid #b9b9b9;
+    border-radius: 5px;
+}
+
+
+/*-------------------------HEADER---------------------------------*/
+
+#head-line {
+    align-items: center;
+    width: 100%;
+    height: 30px;
+    padding-top: 5px;
+    background-color: black;
+    justify-items: center;
+}
+
+.header-wrap{
+    width: 100%;
+    min-width: 1275px;
+    height: 23px;
+    justify-content: end;
+}
+
+.header-wrap a{
+    color: white;
+    font-size: 12px;
+}
+
+.header-wrap a:hover{
+    font-weight: bolder;
+}
+
+.header-wrap ul{
+    width: 155px;
+    height: 30px;
+    position: absolute;
+    right: 30px;
+}
+
+.header-wrap li{
+    float: left;
+    margin: 0;
+    padding: 0;
+    width: auto;
+}
+
+
+#head-line a {
+    text-decoration: none;
+}
+
+header li{
+    width: 70px;
+    height: 30px;
+    text-align: center;
+    padding: 5px;
+}
+
+
+#sign-in:hover{
+    background-color: rgba(179, 204, 249, 0.312);
+    border-radius: 5px;
+}
+#sign-in:visited{
+    color: black;
+}
+#login:hover{
+    background-color: rgba(179, 204, 249, 0.312);
+    border-radius: 5px;
+}
+
+/*------------------------------NAV-----------------------------------*/
+.navi{
+}
+
+.nav-wrap{
+    display: grid;
+    grid-template-areas: "box1 box2 box3";
+    grid-template-columns: 2fr 6fr 2fr;
+    height: 60px;
+    padding-top: 10px;
+    align-content: center;
+    min-width: 1200px;
+}
+
+.nav-list{
+    margin: 0px auto;
+}
+
+.nav-list li{
+    float: left;
+}
+
+.nav-list li a{
+    padding: 0px 20px;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: bolder;
+}
+
+.navbar li{
+    font-size: 29px;
+    float: left;
+}
+
+.navbar a{
+    text-decoration: none;
+    padding: 0px 15px;
+    font-weight: bolder;
+}
+
+.nav-banner{
+    width: 1200px;
+    max-height: 400px;
+    background-image: url("/img/main-img.png");
+    background-size: cover;
+}
+
+
+
+/*------------------------------MAIN-------------------------------------*/
+.product-list{
+    width: 80vw;
+    height: 500px;
+    margin: 0px 5px;
+}
+
+.product{
+    border: 1px solid #b9b9b9;
+    border-radius: 5px;
+    margin: 10px 0px;
+    width: 200px;
+    height: 200px;
+}
+
+.product-info{
+    text-align: center;
+}
+
+.product-img{
+    width: 200px;
+    height: 150px;
+}
+
+.product-name{
+    padding: 0px 5px;
+}
+
+.product-price{
+    text-decoration: line-through;
+    font-size: 14px;
+    color: #323232;
+}
+
+.product-discount-price{
+    padding: 0px 10px;
+    font-weight: bolder;
+    font-size: 17px;
+    color: red;
+    text-align: end;
+}
+
+/*------------------------------FOOTER-----------------------------------*/
+
+footer {
+    display: flex;
+    height: 10vh;
+    background-color: #323232;
+    align-items: center;
+    padding: 0px 7vw;
+}
+
+#footer{
+    padding: 5px 10px;
+}
+#footer p{
+    color: rgb(230, 229, 229);
+}
