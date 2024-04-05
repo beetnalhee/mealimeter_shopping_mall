@@ -77,53 +77,15 @@
       <section id="section">
         <div id="index-wrap">
           <div class="product-list">
-            <div class="product">
-              <ul class="product-info">
+              <ul>
                 <li>
-                  <div class="product-img" style="background-image: url(/img/productEx.jpg); background-size: cover; " ></div>
+                  <div>
+                    <div class="product-img" style="background-image: url(/img/productEx.jpg); background-size: cover; " ></div>
+                    <div><a href="">[피코크] 어메이징 부대찌개</a></div>
+                    <div><span class="product-price">19,900</span> 9,900</div>
+                  </div>
                 </li>
-                <li class="product-name"><a href="">[피코크] 어메이징 부대찌개</a> </li>
-                <li class="product-discount-price"><span class="product-price">19,900</span> 9,900</li>
               </ul>
-            </div>
-            <div class="product">
-              <div class="product-img" style="background-image: url(/img/productEx.jpg); background-size: cover; " ></div>
-              <ul class="product-info">
-                <li class="product-name"><a href="">[피코크] 어메이징 부대찌개</a> </li>
-                <li class="product-discount-price"><span class="product-price">19,900</span> 9,900</li>
-              </ul>
-            </div>
-            <div class="product">
-              <div class="product-img" style="background-image: url(/img/productEx.jpg); background-size: cover; " ></div>
-              <ul class="product-info">
-                <li class="product-name"><a href="">[피코크] 어메이징 부대찌개</a> </li>
-                <li class="product-discount-price"><span class="product-price">19,900</span> 8,900</li>
-              </ul>
-            </div>
-            <div class="product">
-              <div class="product-img" style="background-image: url(/img/productEx.jpg); background-size: cover; " ></div>
-              <ul class="product-info">
-                <li class="product-name"><a href="">[피코크] 어메이징 부대찌개</a> </li>
-                <li class="product-discount-price"><span class="product-price">19,900</span> 9,900</li>
-              </ul>
-            </div>
-            <div class="product">
-              <div class="product-img" style="background-image: url(/img/productEx.jpg); background-size: cover; " ></div>
-              <ul class="product-info">
-                <li class="product-name"><a href="">[피코크] 어메이징 부대찌개</a> </li>
-                <li class="product-discount-price"><span class="product-price">19,900</span> 9,900</li>
-              </ul>
-            </div>
-            <div class="product">
-            </div>
-            <div class="product">
-            </div>
-            <div class="product">
-            </div>
-            <div class="product">
-            </div>
-            <div class="product">
-            </div>
           </div>
         </div>
       </section>
