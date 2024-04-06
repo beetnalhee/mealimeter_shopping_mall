@@ -20,7 +20,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>chan999 포트폴리오 로그인</title>
+  <title>mealimeter:회원가입</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
@@ -44,7 +44,7 @@
 
     <!-- 메인 시작 -->
     <div id="register-wrap">
-          <h1 id="register-text">회원 가입</h1>
+          <h1 class="title-text">회원 가입</h1>
       <form id="register-form" name="register-form" method="post" action="${register_action}">
         <fieldset id="register-fieldset">
           <ul id="register-list">

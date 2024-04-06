@@ -18,7 +18,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>자유 게시판 : ${article.title}</title>
+  <title>밀리소식 : ${article.title}</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
@@ -42,7 +42,6 @@
     <!-- 메인 시작 -->
     <div id="container">
       <!-- aside 시작 -->
-      <jsp:include page="/module/aside.jsp" />
       <!-- aside 종료 -->
 
       <section id="section">

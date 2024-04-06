@@ -19,7 +19,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>chan999 포트폴리오 로그인</title>
+  <title>mealimeter:로그인</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
@@ -46,7 +46,7 @@
         <input type="hidden" name="referer" value="${referer}">
         <fieldset id="login-fieldset">
           <div id="login-div">
-            <h1 id="login-text" >로그인</h1>
+            <h1 class="title-text" >로그인</h1>
             <P>${message}</P>
             <input class="login-input" name="loginId" id="user-id" type="text" placeholder="아이디" required autofocus value= "${EzenUtil.decryption(cookie.saveId.value)}">
             <input class="login-input" name="loginPw" id="user-password" type="password" placeholder="비밀번호" required>
