@@ -31,16 +31,119 @@
     <!-- 메인 시작 -->
     <div id="container">
       <section id="section">
-        <div class="cart-wrap">
+        <div class="cart">
           <h1 class="title-text">장바구니</h1>
-          <table class="cart-table">
-            <thead>
-
-            </thead>
-            <tbody></tbody>
-            <tfoot></tfoot>
-          </table>
-
+          <div class="cart-wrap">
+            <div class="cart-controller">
+              <div class="check-box" id="select-all">
+                <input class="cart-check-all" type="checkbox">
+                <label for="select-all">
+                  전체선택 (<span>2</span>/2)
+                </label>
+              </div>
+              <div class="cart-select-btn">
+                <a href="#" class="btn-del-all">전체삭제</a>
+                <a href="#" class="btn-del-wish">선택삭제</a>
+              </div>
+            </div>
+            <div class="cart-list">
+              <ul>
+                <li class="cart-list-prod">
+                  <div class="check-box">
+                    <input type="checkbox" id="order-no1">
+                    <label for="order-no1"></label>
+                  </div>
+                  <div class="cart-img-wrap">
+                    <img src="/img/product3.jpg">
+                  </div>
+                  <div class="cart-prod-wrap">
+                    <div class="cart-prod-name">
+                      <a href="" >[냉동] 육수가득 소불고기 전골</a>
+                    </div>
+                    <div class="cart-prod-price">
+                      <ul>
+                        <li>16,900</li>
+                        <li>원</li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="cart-prod-count">
+                    <a href="#" title="수량 빼기" class="btn-down">-</a>
+                    <input type="text" class="quantity" value="1" readonly>
+                    <a href="#" title="수량 더하기" class="btn-up">+</a>
+                  </div>
+                  <div class="price-sum">
+                    <ul>
+                      <li>16,900</li>
+                      <li>원</li>
+                    </ul>
+                  </div>
+                  <div class="prod-del">
+                    <button type="button">X</button>
+                  </div>
+                </li>
+                <li class="cart-list-prod">
+                  <div class="check-box">
+                    <input type="checkbox" id="order-no2">
+                    <label for="order-no2"></label>
+                  </div>
+                  <div class="cart-img-wrap">
+                    <img src="/img/product4.jpg">
+                  </div>
+                  <div class="cart-prod-wrap">
+                    <div class="cart-prod-name">
+                      <a href="" >[냉장] 평양식 어복쟁반</a>
+                    </div>
+                    <div class="cart-prod-price">
+                      <ul>
+                        <li>34,800</li>
+                        <li>원</li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="cart-prod-count">
+                    <a href="#" title="수량 빼기" class="btn-down">-</a>
+                    <input type="text" class="quantity" value="1" readonly>
+                    <a href="#" title="수량 더하기" class="btn-up">+</a>
+                  </div>
+                  <div class="price-sum">
+                    <ul>
+                      <li>34,800</li>
+                      <li>원</li>
+                    </ul>
+                  </div>
+                  <div class="prod-del">
+                    <button type="button">X</button>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="total-payment">
+              <ul>
+                <li>
+                  <div>총 상품금액</div>
+                  <div class="total-prod-price">51,700원</div>
+                </li>
+                <li>
+                  <div class="plus"> + </div>
+                </li>
+                <li>
+                  <div>총 배송비</div>
+                  <div class="total-delivery-price">3,000원</div>
+                </li>
+                <li>
+                  <div class="equal"> = </div>
+                </li>
+                <li>
+                  <div>총 결제금액</div>
+                  <div class="total-price">54,700원</div>
+                </li>
+              </ul>
+            </div>
+            <div class="cart-btn-wrap">
+              <button type="button" class="cart-back">돌아가기</button>
+              <button type="button" class="cart-order">주문하기</button>
+            </div>
           </div>
         </div>
       </section>

@@ -33,7 +33,11 @@
         <div class="index-wrap">
           <div class="product-wrap">
             <div class="ai-suggestion-wrap">
-
+              <ul>
+                <li class="suggestion-text"></li>
+                <li class="suggestion-img-wrap"><img class="suggestion-img" src="/img/jjuggumi.png"></li>
+                <li class="suggestion-product"></li>
+              </ul>
             </div>
             <div class="sec-title">
               <H1>실시간 베스트</H1>
