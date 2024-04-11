@@ -64,8 +64,8 @@ public class JdbcMemberDao implements MemberDao{
             rs = pstmt.executeQuery();
             if (rs.next()) {
                 member = new Member();
-                member.setId(rs.getString("member_id"));
-                member.setName(rs.getString("name"));
+                member.setId(rs.getString("user_id"));
+                member.setName(rs.getString("user_name"));
                 member.setEmail(rs.getString("email"));
                 member.setPhonenumber(rs.getString("phonenumber"));
                 member.setZip_code(rs.getString("zip_code"));
@@ -118,7 +118,7 @@ public class JdbcMemberDao implements MemberDao{
         List<Member> list = new ArrayList<>();
         StringBuilder sql = new StringBuilder();
         sql.append(" SELECT user_id, user_name, email, phonenumber, zip_code, user_address, TO_CHAR(regdate, 'yyyy-MM-DD HH24:MI:SS') regdate, grade_rating")
-                .append(" FROM users");
+           .append(" FROM users");
 
         conn = connectionFactory.getConnection();
         try {
@@ -151,19 +151,28 @@ public class JdbcMemberDao implements MemberDao{
 
     public static void main(String[] args) throws Exception {
         MemberDao memberDao = new JdbcMemberDao();
-
+        Member member = memberDao.findById("butter");
+        System.out.println(member);
+//
 //        List<Member> list = memberDao.findAll();
 //        for (Member member : list) {
 //            System.out.println(member);
-//        }
+        }
 
 //        boolean isMember = memberDao.findByIdNPasswd("AAAAA","12345");
 //        System.out.println(isMember);
 
 
-        Member member = new Member("Thu","1111","목요일","thu@gmail.com","010-111","11111","서울시 노원구");
-        memberDao.create(member);
-        System.out.println("회원가입 완료...");
+
+
+//
+//        Member member = new Member("Thu","1111","목요일","thu@gmail.com","010-111","11111","서울시 노원구");
+//        memberDao.create(member);
+//        System.out.println("회원가입 완료...");
+
+
+
+
 
 
 
@@ -173,4 +182,4 @@ public class JdbcMemberDao implements MemberDao{
 
 
     }
-}
+

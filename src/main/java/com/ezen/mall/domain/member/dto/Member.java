@@ -19,7 +19,7 @@ public class Member {
 //    }
 
     public Member(String id, String passwd, String name, String email, String phonenumber, String zip_code, String user_address) {
-        this(id, passwd, name, email,null,null, phonenumber,zip_code,user_address,null);
+        this(id, passwd, name, email,null,null, phonenumber, zip_code, user_address,null);
 
     }
 
