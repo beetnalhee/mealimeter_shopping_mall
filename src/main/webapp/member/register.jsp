@@ -50,7 +50,8 @@
           <ul id="register-list">
             <li class="register-info">
               <label for="register-id">아이디</label>
-              <input class="register-input" name="id" type="text" id="register-id" size="20" placeholder="아이디를 입력해주세요." minlength="2"
+              <input class="register-input" name="
+" type="text" id="register-id" size="20" placeholder="아이디를 입력해주세요." minlength="2"
                      maxlength="10" autofocus required>
             </li>
             <li class="register-info">

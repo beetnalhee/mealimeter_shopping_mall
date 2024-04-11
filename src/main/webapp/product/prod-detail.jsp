@@ -1,5 +1,14 @@
 <%@ page contentType="text/html; charset=utf-8" pageEncoding="utf-8" %>
 <%@ page import="com.ezen.mall.web.common.EzenUtil" %>
+<%@ page import="com.ezen.mall.domain.product.service.ProductService" %>
+<%@ page import="com.ezen.mall.domain.product.service.ProductServiceImpl" %>
+<%@ page import="com.ezen.mall.domain.product.dto.Product" %>
+
+<%
+  ProductService productService = new ProductServiceImpl();
+  Product product = productService.searchProduct(Integer.parseInt(request.getParameter("prodId")));
+  request.setAttribute("product", product);
+%>
 
 <!DOCTYPE html>
 <html lang="ko">
@@ -38,12 +47,12 @@
             </div>
             <div class="prod-detail-info">
               <ul>
-                <li class="prod-explain">깔끔한 육수와 신선한 재료의 조합</li>
-                <li class="prod-name">[냉장] 소고기 버섯 샤브샤브</li>
+                <li class="prod-explain">${product.brief}</li>
+                <li class="prod-name">${product.prodName}</li>
                 <li class="prod-info">3인분 ㅣ 조리시간 20분</li>
                 <li class="prod-price">
                   <div>상품가격</div>
-                  <div>30,800원</div>
+                  <div>${product.price}원</div>
                 </li>
                 <li class="prod-delivery">
                   <div>배송방법</div>
@@ -59,14 +68,14 @@
                     <div>
                       <a href="#" title="수량 빼기" class="btn-down">-</a>
                       <input type="text" class="quantity" value="1" readonly>
-                      <a href="#" title="수량 더하기" class="btn-up">+</a>
+                      <a href="#" title="수량 더하기" class="btn-up" onclick="value ++">+</a>
                     </div>
-                    <div>30,800원</div>
+                    <div>${product.price}</div>
                   </div>
                 </li>
                 <li class="prod-detail-total">
                   <div class="prod-total-quantity">수량 1개</div>
-                  <div class="prod-total-price">30,800원</div>
+                  <div class="prod-total-price">${product.price}원</div>
                 </li>
                 <li class="prod-btn-wrap">
                   <button type="button">장바구니</button>
