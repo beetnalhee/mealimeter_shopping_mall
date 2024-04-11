@@ -34,7 +34,8 @@
           <div class="product-wrap">
             <div class="ai-suggestion-wrap">
               <ul>
-                <li class="suggestion-text"></li>
+                <li class="suggestion-text">
+                </li>
                 <li class="suggestion-img-wrap"><img class="suggestion-img" src="/img/jjuggumi.png"></li>
                 <li class="suggestion-product"></li>
               </ul>

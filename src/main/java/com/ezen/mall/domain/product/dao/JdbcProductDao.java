@@ -27,7 +27,7 @@ public class JdbcProductDao implements ProductDao {
     public List<Product> findByAll() throws SQLException {
         List<Product> list = new ArrayList<>();
         StringBuilder sql = new StringBuilder();
-        sql.append("SELECT product_id, product_type, product_date, price, brief, product_img, product_name, product_status")
+        sql.append("SELECT product_id, product_type, product_date, TO_CHAR(price, 'FM999,999') price, brief, product_img, product_name, product_status, product_servings, product_cookingtime")
                 .append(" FROM products ");
 
 
@@ -40,11 +40,13 @@ public class JdbcProductDao implements ProductDao {
                 product.setProdId(rs.getInt("product_id"));
                 product.setProdType(rs.getString("product_type"));
                 product.setProdDate(rs.getString("product_date"));
-                product.setPrice(rs.getLong("price"));
+                product.setPrice(rs.getString("price"));
                 product.setBrief(rs.getString("brief"));
                 product.setProdImg(rs.getString("product_img"));
                 product.setProdName(rs.getString("product_name"));
                 product.setProdStatus(rs.getString("product_status"));
+                product.setProdServings(rs.getString("product_servings"));
+                product.setProdCookingTime(rs.getString("product_cookingtime"));
                 list.add(product);
             }
         } finally {
@@ -63,7 +65,7 @@ public class JdbcProductDao implements ProductDao {
     public Product findProduct(int prodId) {
         Product product = null;
         StringBuilder sql = new StringBuilder();
-        sql.append("SELECT product_id, product_type, product_date, price, brief, product_img, product_name, product_status")
+        sql.append("SELECT product_id, product_type, product_date, TO_CHAR(price, 'FM999,999') price, brief, product_img, product_name, product_status, product_servings, product_cookingtime")
                 .append(" FROM products")
                 .append(" WHERE product_id = ?");
 
@@ -77,11 +79,13 @@ public class JdbcProductDao implements ProductDao {
                 product.setProdId(rs.getInt("product_id"));
                 product.setProdType(rs.getString("product_type"));
                 product.setProdDate(rs.getString("product_date"));
-                product.setPrice(rs.getLong("price"));
+                product.setPrice(rs.getString("price"));
                 product.setBrief(rs.getString("brief"));
                 product.setProdImg(rs.getString("product_img"));
                 product.setProdName(rs.getString("product_name"));
                 product.setProdStatus(rs.getString("product_status"));
+                product.setProdServings(rs.getString("product_servings"));
+                product.setProdCookingTime(rs.getString("product_cookingtime"));
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);

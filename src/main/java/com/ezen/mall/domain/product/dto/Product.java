@@ -4,16 +4,18 @@ public class Product {
     private int prodId;
     private String prodType;
     private String prodDate;
-    private long price;
+    private String price;
     private String brief;
     private String prodImg;
     private String prodName;
     private String prodStatus;
+    private String prodServings;
+    private String prodCookingTime;
 
 
     public Product(){}
 
-    public Product(int prodId, String prodType, String prodDate, long price, String brief, String prodImg, String prodName, String prodStatus) {
+    public Product(int prodId, String prodType, String prodDate, String price, String brief, String prodImg, String prodName, String prodStatus, String prodServings, String prodCookingTime) {
         this.prodId = prodId;
         this.prodType = prodType;
         this.prodDate = prodDate;
@@ -22,6 +24,8 @@ public class Product {
         this.prodImg = prodImg;
         this.prodName = prodName;
         this.prodStatus = prodStatus;
+        this.prodServings = prodServings;
+        this.prodCookingTime = prodCookingTime;
     }
 
     public int getProdId() {
@@ -48,11 +52,11 @@ public class Product {
         this.prodDate = prodDate;
     }
 
-    public long getPrice() {
+    public String getPrice() {
         return price;
     }
 
-    public void setPrice(long price) {
+    public void setPrice(String price) {
         this.price = price;
     }
 
@@ -88,6 +92,22 @@ public class Product {
         this.prodStatus = prodStatus;
     }
 
+    public String getProdServings() {
+        return prodServings;
+    }
+
+    public void setProdServings(String prodServings) {
+        this.prodServings = prodServings;
+    }
+
+    public String getProdCookingTime() {
+        return prodCookingTime;
+    }
+
+    public void setProdCookingTime(String prodCookingTime) {
+        this.prodCookingTime = prodCookingTime;
+    }
+
     @Override
     public String toString() {
         return "Product{" +
@@ -99,6 +119,8 @@ public class Product {
                 ", prodImg='" + prodImg + '\'' +
                 ", prodName='" + prodName + '\'' +
                 ", prodStatus='" + prodStatus + '\'' +
+                ", prodServings='" + prodServings + '\'' +
+                ", prodCookingTime='" + prodCookingTime + '\'' +
                 '}';
     }
 }

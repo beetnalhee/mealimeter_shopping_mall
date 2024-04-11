@@ -48,7 +48,7 @@
               <c:forEach var="product" items="${list}" >
               <li class="product">
                 <div class="product-info">
-                  <div class="product-img" style="background-image: url(/img/얼큰버섯.jpg); background-size: cover; " ></div>
+                  <div class="product-img" style="background-image: url(${product.prodImg}); background-size: cover; " ></div>
                   <div class="product-text-wrap">
                     <a href="/product/prod-detail.jsp?prodId=${product.prodId}">
                       <div class="product-name">
@@ -58,7 +58,7 @@
                         <ul>
                           <li class="product-price">${product.price}</li>
                           <li class="product-won">원</li>
-                          <li class="product-servings"> / 2~3인분</li>
+                          <li class="product-servings"> / ${product.prodServings}</li>
                         </ul>
                       </div>
                     </a>

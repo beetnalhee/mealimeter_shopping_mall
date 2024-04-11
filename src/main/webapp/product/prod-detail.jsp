@@ -23,6 +23,25 @@
     href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Gasoek+One&family=IBM+Plex+Sans+KR&family=Nanum+Gothic&display=swap"
     rel="stylesheet">
   <link rel="stylesheet" href="/css/index.css">
+  <script>
+    var count=0;
+    function plus(){
+      count=count+1;
+      document.querySelector(".quantity").value=count;
+    }
+
+    function minus(){
+      if(count > 1){
+        count=count-1;
+        document.querySelector(".quantity").value=count;
+      } else {
+        count = 1;
+        document.querySelector(".quantity").value=count;
+      }
+    }
+
+
+  </script>
 </head>
 
 <body>
@@ -43,13 +62,13 @@
         <div class="index-wrap">
           <div class="prod-detail-wrap">
             <div class="prod-detail-img">
-              <img src="/img/product5.jpg">
+              <img src="${product.prodImg}">
             </div>
             <div class="prod-detail-info">
               <ul>
                 <li class="prod-explain">${product.brief}</li>
                 <li class="prod-name">${product.prodName}</li>
-                <li class="prod-info">3인분 ㅣ 조리시간 20분</li>
+                <li class="prod-info">${product.prodServings} ㅣ 조리시간 ${product.prodCookingTime}</li>
                 <li class="prod-price">
                   <div>상품가격</div>
                   <div>${product.price}원</div>
@@ -65,10 +84,10 @@
                 <li class="prod-option">
                   옵션선택
                   <div class="prod-option-count">
-                    <div>
-                      <a href="#" title="수량 빼기" class="btn-down">-</a>
-                      <input type="text" class="quantity" value="1" readonly>
-                      <a href="#" title="수량 더하기" class="btn-up" onclick="value ++">+</a>
+                    <div class="prod-btn-quantity">
+                      <button type="button" title="수량 빼기" class="btn-down" onclick="minus()" value="-"/>
+                      <span class="quantity">1</span>
+                      <button type="button" title="수량 더하기" class="btn-up" onclick="plus()" value="+"/>
                     </div>
                     <div>${product.price}</div>
                   </div>
