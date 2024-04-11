@@ -32,13 +32,33 @@
 
   <c:choose>
     <c:when test="${pageContext.request.requestURI.equals('/') || pageContext.request.requestURI.equals('/index.jsp')}">
-      <div class="nav-banner-wrap">
+      <div class="nav-banner-main">
         <a href=""><div class="nav-banner-main"><video src="/video/banner-main.mp4" loop autoplay muted ></video></div></a>
       </div>
     </c:when>
+
+    <c:when test="${pageContext.request.requestURI.equals('/member/login.jsp')}">
+      <div class="nav-banner">
+        <a href=""><div class="nav-banner"><img src="/img/login-banner.png" ></img></div></a>
+      </div>
+    </c:when>
+
+    <c:when test="${pageContext.request.requestURI.equals('/member/register.jsp')}">
+      <div class="nav-banner">
+        <a href=""><div class="nav-banner"><img src="/img/join-banner.png" ></img></div></a>
+      </div>
+    </c:when>
+
+    <c:when test="${pageContext.request.requestURI.equals('/cart/cart.jsp')}">
+      <div class="nav-banner">
+        <a href=""><div class="nav-banner"><img src="/img/cart-banner.png" ></img></div></a>
+      </div>
+    </c:when>
+
     <c:otherwise>
-      <div class="nav-banner-wrap">
-        <a href=""><div class="nav-banner"></div></a>
+      <div class="nav-banner">
+        <a href=""><div class="nav-banner"><img src="/img/nav-img.png"> </div></a>
+
       </div>
     </c:otherwise>
   </c:choose>

@@ -228,8 +228,11 @@ header li{
 .nav-banner{
     min-width: 1300px;
     height: 400px;
-    background-image: url("/img/nav-img.png");
-    background-size: cover;
+}
+
+.nav-banner img{
+    min-width: 1300px;
+    height: 400px;
 }
 
 .nav-logo img{
