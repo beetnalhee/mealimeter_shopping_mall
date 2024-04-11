@@ -314,6 +314,202 @@ header li{
     background-color: rgba(39, 106, 255, 0.64);
 }
 
+/*-------------------------마이페이지-------------------------*/
+#mypage-wrap{
+    width: 1200px;
+    min-width: 1200px;
+    margin: 0px auto;
+}
+
+.mypage-content{
+    display: flex;
+}
+
+.mypage-aside-wrap{
+    width: 180px;
+    height: 250px;
+    padding: 10px;
+    background-color: #389826;
+    align-items: center;
+    color: honeydew;
+}
+
+.mypage-main-wrap{
+    width: 850px;
+    border: 1px solid #9d9c9c;
+    padding: 50px;
+    text-align: start;
+}
+
+.member-info-wrap{
+    padding: 10px 20px;
+}
+
+.user-img-wrap{
+    display: flex;
+    justify-content: center;
+    padding-top: 20px;
+}
+
+.user-img{
+    border: 1px solid #838383;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background-color: #f3f2f2;
+}
+
+#mypage-name{
+    font-size: 22px;
+    padding: 5px 0px;
+}
+
+#mypage-grade{
+    font-size: 13px;
+}
+
+#mypage-order-head{
+    margin: 15px 0;
+    padding: 5px;
+    background-color: #e8e5e5;
+    font-size: 14px;
+}
+
+.mypage-order-list{
+    border: 1px solid #e1e1e1;
+    display: flex;
+}
+
+.mypage-order-list img{
+    width: 100px;
+    height: 100px;
+}
+
+.mypage-order-info{
+    align-content: center;
+    padding: 20px;
+}
+
+/*---------------------------주문하기-------------------------*/
+.order-wrap{
+    width: 900px;
+    min-width: 900px;
+    margin: 0px auto;
+}
+
+.order-delivery-wrap{
+    width: 750px;
+    height: 170px;
+    padding: 10px 50px;
+    text-align: start;
+    margin: 0px auto;
+    border-top: 2px solid black;
+    border-bottom: 1px solid #bebebe;
+}
+
+.order-delivery-wrap > div{
+    display: flex;
+    justify-content: space-between;
+    width: 700px;
+    height: 40px;
+    align-items: center;
+}
+
+.order-delivery-wrap > div > div {
+    display: flex;
+    justify-content: space-between;
+    width: 270px;
+    align-items: center;
+}
+
+.order-orderlist-wrap{
+    width: 750px;
+    padding: 10px 50px;
+    text-align: start;
+    margin: 0px auto;
+    border-bottom: 1px solid #bebebe;
+}
+
+#order-adress{
+    width: 605px;
+}
+
+.order-delivery-wrap input{
+    height: 30px;
+    padding: 0px 10px;
+}
+
+
+
+.order-title{
+    padding: 20px 0;
+}
+
+.order-orderlist{
+    border: 1px solid #e1e1e1;
+    display: flex;
+}
+
+.order-orderlist img{
+    width: 100px;
+    height: 100px;
+}
+
+.order-order-info{
+    align-content: center;
+    padding: 20px;
+    width: 450px;
+}
+
+.order-prod-price{
+    margin: 0px auto;
+    align-content: center;
+    font-weight: bolder;
+}
+
+.order-total-price-wrap{
+    display: flex;
+    justify-content: center;
+    margin: 30px 0;
+    padding: 10px 0;
+    height: 40px;
+    align-items: center;
+    background-color: #eeeaea;
+}
+
+.order-total-price-wrap > div{
+    margin: 0 20px;
+    font-weight: bolder;
+}
+
+.order-total-price{
+    font-size: 30px;
+    color: #ff4a6e;
+}
+
+.order-payment{
+    width: 750px;
+    padding: 10px 50px;
+    text-align: start;
+    align-content: end;
+    margin: 0px auto;
+    border-bottom: 1px solid #bebebe;
+}
+
+.order-payment-method{
+    width: 200px;
+    height: 40px;
+}
+
+.order-btn{
+    display: block;
+    width: 250px;
+    height: 50px;
+    align-content: center;
+    margin: 20px auto;
+    background-color: rgba(93, 157, 84, 0.61);
+}
+
 /*----------------------------회원가입-------------------------*/
 .register-main{
     margin: 0px auto;
@@ -324,7 +520,6 @@ header li{
     width: 1200px;
     min-width: 1200px;
     margin: 0px auto;
-    height: 600px;
     align-content: center;
 }
 
