@@ -453,16 +453,72 @@ main{
     height: 400px;
 }
 
-.ai-suggestion-wrap ul{
+.ai-suggestion-wrap  ul {
     display: inline-flex;
     width: 1200px;
     min-width: 1200px;
 }
 
+
 .suggestion-text{
     height: 400px;
     width: 500px;
+    padding: 30px;
+
 }
+
+.ai-banner-div{
+    width: 200px;
+    background: black;
+    color: white;
+    margin: 50px 0;
+    font-size: 22px;
+    line-height: 38px;
+    font-weight: 700;
+    font-size: 30px;
+}
+
+/*.ai-banner-span{*/
+/*    background: black;*/
+/*    color: white;*/
+/*    font-size: 35px;*/
+/*    justify-content: start;*/
+/*    margin-bottom: 20px;*/
+/*}*/
+
+.ai-first-spring{
+    font-size:50px;
+    text-align: start;
+    margin-bottom: 20px;
+    /*border-bottom: 4px solid black;*/
+}
+
+.ai-first-recommendation{
+    font-size: 50px;
+    text-align: start;
+    line-height: 56px;
+
+}
+
+.ai-first-favor{
+    font-size: 15px;
+    text-align: start;
+    padding-top: 50px;
+}
+
+.ai-product-name{
+    font-size: 20px;
+    text-align: start;
+    font-weight: bolder;
+    padding-top: 200px;
+}
+
+.ai-product-price{
+    font-size: 40px;
+    text-align: start;
+    padding-top: 30px;
+}
+
 
 .suggestion-product{
     height: 400px;

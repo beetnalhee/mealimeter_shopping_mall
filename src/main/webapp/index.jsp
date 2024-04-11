@@ -34,9 +34,20 @@
           <div class="product-wrap">
             <div class="ai-suggestion-wrap">
               <ul>
-                <li class="suggestion-text"></li>
+                <li class="suggestion-text">
+                  <div class="ai-banner-div">
+                  <span class="ai-banner-span"> AI 메뉴 추천 </span>
+                  </div>
+                  <div class="ai-first-spring">봄내음 물씬나는</div>
+                    <div class="ai-first-recommendation">이런 메뉴 어떠세요?</div>
+                    <div class="ai-first-favor">로그인하시면 고객님의 취향에 딱 맞는 메뉴를 추천드립니다</div>
+                </li>
                 <li class="suggestion-img-wrap"><img class="suggestion-img" src="/img/jjuggumi.png"></li>
-                <li class="suggestion-product"></li>
+                <li class="suggestion-product">
+                  <div class="ai-product-name">[냉동]쫄깃탱글 불쭈꾸미볶음</div>
+                  <div class="ai-product-price">10,472원</div>
+
+                </li>
               </ul>
             </div>
             <div class="sec-title">
