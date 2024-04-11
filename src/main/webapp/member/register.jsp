@@ -69,6 +69,22 @@
               <label for="register-email">이메일</label>
               <input class="register-input" name="email" type="email" id="register-email" placeholder="이메일">
             </li>
+
+            <li class="register-info">
+              <label for="register-phonenumber">연락처</label>
+              <input class="register-input" name="phonenumber" type="tel" id="register-phonenumber" placeholder="연락처">
+            </li>
+
+            <li class="register-info">
+              <label for="register-zipcode">우편번호</label>
+              <input class="register-input" name="zip_code" type="number" id="register-zipcode" placeholder="우편번호">
+            </li>
+
+            <li class="register-info">
+              <label for="register-address">상세주소</label>
+              <input class="register-input" name="user_address" type="text" id="register-address" placeholder="상세주소">
+            </li>
+
             <li class="register-info">
               <label for="register-picture">사진</label>
               <input name="picture" type="file" id="register-picture">
