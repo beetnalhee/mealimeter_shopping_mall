@@ -910,7 +910,32 @@ main{
     width: 190px;
 }
 
+.prod-btn-quantity{
+    width: 75px;
+    height: 25px;
+    border: 1px solid #bebebe;
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+    background-color: white;
+}
 
+.prod-btn-quantity span{
+    width: 25px;
+    height: 25px;
+}
+
+.quantity{
+    align-content: center;
+}
+
+.prod-btn-quantity button{
+    width: 25px;
+    height: 25px;
+    font-size: 15px;
+    border: none;
+    background-color: white;
+}
 
 /*-----------------------------BOARD------------------------------------*/
 #board-header{

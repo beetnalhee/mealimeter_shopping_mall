@@ -24,19 +24,20 @@
     rel="stylesheet">
   <link rel="stylesheet" href="/css/index.css">
   <script>
-    var count=0;
+    let count=0;
     function plus(){
       count=count+1;
-      document.querySelector(".quantity").value=count;
+      document.querySelector(".quantity").innerText=count;
+      document.querySelector(".test1").innerText = 10000 * count;
     }
 
     function minus(){
       if(count > 1){
         count=count-1;
-        document.querySelector(".quantity").value=count;
+        document.querySelector(".quantity").innerText=count;
       } else {
         count = 1;
-        document.querySelector(".quantity").value=count;
+        document.querySelector(".quantity").innerText=count;
       }
     }
 
@@ -85,11 +86,11 @@
                   옵션선택
                   <div class="prod-option-count">
                     <div class="prod-btn-quantity">
-                      <button type="button" title="수량 빼기" class="btn-down" onclick="minus()" value="-"/>
+                      <button type="button" title="수량 빼기" class="btn-down" onclick="minus()">-</button>
                       <span class="quantity">1</span>
-                      <button type="button" title="수량 더하기" class="btn-up" onclick="plus()" value="+"/>
+                      <button type="button" title="수량 더하기" class="btn-up" onclick="plus()">+</button>
                     </div>
-                    <div>${product.price}</div>
+                    <div class="test1">${product.price}</div>
                   </div>
                 </li>
                 <li class="prod-detail-total">
