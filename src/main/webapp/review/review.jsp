@@ -5,13 +5,22 @@
 <%@ page import="com.ezen.mall.domain.product.service.ProductServiceImpl" %>
 <%@ page import="com.ezen.mall.domain.product.dto.Product" %>
 <%@ page import="java.util.List" %>
+<%@ page import="com.ezen.mall.domain.review.dao.ReviewDao" %>
+<%@ page import="com.ezen.mall.domain.review.dao.JdbcReviewDao" %>
+<%@ page import="com.ezen.mall.domain.review.dto.Review" %>
+<%@ page import="com.ezen.mall.domain.review.service.ReviewService" %>
+<%@ page import="com.ezen.mall.domain.review.service.ReviewServiceImpl" %>
 
 <!DOCTYPE html>
 <html lang="ko">
 
 <%
   ProductService productService = new ProductServiceImpl();
-  List<Product> list = productService.productList();
+  List<Product> products = productService.productList();
+  request.setAttribute("products", products);
+
+  ReviewService reviewService = new ReviewServiceImpl();
+  List<Review> list = reviewService.reviewList();
   request.setAttribute("list", list);
 %>
 
@@ -46,7 +55,7 @@
         <div class="review-user-id">작성자 : chan999</div>
         <select class="review-register-title">
           <option>-- 리뷰할 상품을 선택해주세요. --</option>
-          <c:forEach var="product" items="${list}">
+          <c:forEach var="product" items="${products}">
             <option value="review-title">${product.prodName}</option>
           </c:forEach>
         </select>
@@ -61,20 +70,20 @@
         <div class="review-list">
 
 
-
+        <c:forEach var="review" items="${list}">
           <div class="review-wrap">
           <ul>
-            <il><strong>[냉장] 회전 회오리이이이이이이이이 회천초밥</strong></il>
-            <li>2024-04-12 ㅣ chan999</li>
+            <il><strong>${review.subject}</strong></il>
+            <li>${review.regdate} ㅣ ${review.userId}</li>
             <div class="review-content">
               <div class="review-img" style="background-image: url(/img/prod104.jpg); background-size: cover;"></div>
               <div class="review-text">
-                리뷰 테스트입니다. 아무 내용이 들어갈 수도 있습니다. <br>
-                아무 내용이나 넣고 있습니다. 이 부분은 동적으로 바뀌게 될 것입니다.
+                ${review.content}
               </div>
             </div>
           </ul>
           </div>
+        </c:forEach>
 
 
 
