@@ -1,5 +1,7 @@
 <%@ page contentType="text/html; charset=utf-8" pageEncoding="utf-8" %>
 <%@ page import="com.ezen.mall.web.common.EzenUtil" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 
 <!DOCTYPE html>
 <html lang="ko">
@@ -128,7 +130,7 @@
                   <div class="plus"> + </div>
                 </li>
                 <li>
-                  <div>총 배송비</div>
+                  <div>배송비</div>
                   <div class="total-delivery-price">3,000원</div>
                 </li>
                 <li>

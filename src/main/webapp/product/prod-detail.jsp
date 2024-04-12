@@ -8,7 +8,6 @@
   ProductService productService = new ProductServiceImpl();
   Product product = productService.searchProduct(Integer.parseInt(request.getParameter("prodId")));
   request.setAttribute("product", product);
-  session.setAttribute("cart-prod", product);
 %>
 
 <!DOCTYPE html>
@@ -26,23 +25,41 @@
   <link rel="stylesheet" href="/css/index.css">
   <script>
     let count=0;
+
+    function updateTotal() {
+      let priceTag = parseInt("${product.price}");
+      if(count < 1) {
+        count = 1
+        document.querySelector(".prod-total-quantity").innerText =  count; // 수량 업데이트
+        document.querySelector(".prod-total-price").innerText = (priceTag * count) + "원"; // 합계 계산 및 업데이트
+
+      }else {
+        document.querySelector(".prod-total-quantity").innerText = count ; // 수량 업데이트
+        document.querySelector(".prod-total-price").innerText = (priceTag * count) + "원"; // 합계 계산 및 업데이트
+      }
+    }
+
+
     function plus(){
       count=count+1;
       document.querySelector(".quantity").innerText=count;
-      document.querySelector(".test1").innerText = 10000 * count;
+      updateTotal();
+      // document.querySelector(".test1").innerText = priceTag * count;
     }
 
     function minus(){
       if(count > 1){
         count=count-1;
         document.querySelector(".quantity").innerText=count;
+        updateTotal();
       } else {
         count = 1;
         document.querySelector(".quantity").innerText=count;
+        updateTotal();
       }
     }
 
-
+    window.onload = updateTotal;
   </script>
 </head>
 
@@ -95,11 +112,11 @@
                   </div>
                 </li>
                 <li class="prod-detail-total">
-                  <div class="prod-total-quantity">수량 1개</div>
+                  <div>수량 <span class="prod-total-quantity" name="volume">1</span>개</div>
                   <div class="prod-total-price">${product.price}원</div>
                 </li>
                 <li class="prod-btn-wrap">
-                  <button type="button">장바구니</button>
+                  <button type="button">장바구니 담기</button>
                   <button type="button">주문하기</button>
                 </li>
               </ul>
