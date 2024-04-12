@@ -8,6 +8,7 @@
   ProductService productService = new ProductServiceImpl();
   Product product = productService.searchProduct(Integer.parseInt(request.getParameter("prodId")));
   request.setAttribute("product", product);
+  session.setAttribute("cart-prod", product);
 %>
 
 <!DOCTYPE html>

@@ -1,8 +1,19 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html; charset=utf-8" pageEncoding="utf-8" %>
 <%@ page import="com.ezen.mall.web.common.EzenUtil" %>
+<%@ page import="com.ezen.mall.domain.product.service.ProductService" %>
+<%@ page import="com.ezen.mall.domain.product.service.ProductServiceImpl" %>
+<%@ page import="com.ezen.mall.domain.product.dto.Product" %>
+<%@ page import="java.util.List" %>
 
 <!DOCTYPE html>
 <html lang="ko">
+
+<%
+  ProductService productService = new ProductServiceImpl();
+  List<Product> list = productService.productList();
+  request.setAttribute("list", list);
+%>
 
 <head>
   <meta charset="UTF-8">
@@ -29,11 +40,46 @@
     <!-- Nav 종료 -->
 
     <!-- 메인 시작 -->
-    <div id="container">
-      <section id="section">
+    <div class="container">
+      <h1 class="title-text">밀리미터 생생리뷰</h1>
+      <div class="review-register">
+        <div class="review-user-id">작성자 : chan999</div>
+        <select class="review-register-title">
+          <option>-- 리뷰할 상품을 선택해주세요. --</option>
+          <c:forEach var="product" items="${list}">
+            <option value="review-title">${product.prodName}</option>
+          </c:forEach>
+        </select>
+        <div class="review-register-wrap">
+          <textarea rows="5" cols="120"></textarea>
+          <a class="review-register-btn" href="" >등록</a>
+        </div>
+          <input type="file">
+      </div>
+      <div class="review">
+        <h2>리뷰 333건</h2>
+        <div class="review-list">
 
 
-      </section>
+
+          <div class="review-wrap">
+          <ul>
+            <il><strong>[냉장] 회전 회오리이이이이이이이이 회천초밥</strong></il>
+            <li>2024-04-12 ㅣ chan999</li>
+            <div class="review-content">
+              <div class="review-img" style="background-image: url(/img/prod104.jpg); background-size: cover;"></div>
+              <div class="review-text">
+                리뷰 테스트입니다. 아무 내용이 들어갈 수도 있습니다. <br>
+                아무 내용이나 넣고 있습니다. 이 부분은 동적으로 바뀌게 될 것입니다.
+              </div>
+            </div>
+          </ul>
+          </div>
+
+
+
+        </div>
+      </div>
     </div>
   <!-- 메인 종료 -->
 

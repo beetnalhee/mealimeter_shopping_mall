@@ -23,7 +23,7 @@ fieldset{
 }
 
 .title-text{
-    margin-top: 20px;
+    margin-top: 50px;
     margin-bottom: 30px;
     font-size: 35px;
 }
@@ -1145,6 +1145,80 @@ td a{
 .re-img{
     height: 10px;
     width: 10px;
+}
+
+/*------------------------------리뷰-------------------------------------*/
+.review{
+    width: 1000px;
+    text-align: start;
+    margin: 0px auto;
+    padding: 50px 0;
+}
+
+.review-register{
+    text-align: start;
+    width: 1000px;
+    min-width: 1000px;
+    margin: 0px auto;
+}
+
+.review-list{
+    width: 1000px;
+    margin: 20px 0;
+    border-top: 2px solid black;
+    border-bottom: 1px solid #bebebe;
+    padding: 20px 0px;
+}
+
+.review-wrap{
+    padding: 5px 0;
+}
+
+.review-wrap li{
+    margin: 5px 0;
+}
+
+.review-register-title{
+    height: 30px;
+    margin-top: 10px;
+}
+
+.review-content{
+    display: flex;
+    margin: 10px 0;
+}
+
+.review-img{
+    width: 150px;
+    height: 100px;
+}
+
+.review-text{
+    padding: 0px 10px;
+}
+
+.review-register-wrap{
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 0;
+}
+
+.review-register-wrap textarea{
+    padding: 10px;
+}
+
+.review-register-btn{
+    display: block;
+    width: 60px;
+    align-content: center;
+    text-align: center;
+    height: 95px;
+    background-color: rgb(208, 205, 202);
+}
+
+.review-user-id{
+    padding: 5px 0px;
+    background-color: rgba(229, 225, 225, 0.47);
 }
 
 /*------------------------------CART-------------------------------------*/
