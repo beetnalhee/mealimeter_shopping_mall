@@ -1,4 +1,15 @@
+<%@ page import="com.ezen.mall.domain.product.service.ProductService" %>
+<%@ page import="com.ezen.mall.domain.product.dto.Product" %>
+<%@ page import="com.ezen.mall.domain.product.service.ProductServiceImpl" %>
+<%@ page import="java.util.List" %>
 <%@ page contentType="text/html; charset=utf-8" pageEncoding="utf-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
+<%
+  ProductService productService = new ProductServiceImpl();
+  List<Product> list = productService.productList();
+  request.setAttribute("list", list);
+%>
 
 <!DOCTYPE html>
 <html lang="ko">
@@ -55,120 +66,27 @@
             </div>
           <div class="product-list">
               <ul>
-                <li class="product">
-                  <div class="product-info">
-                    <div class="product-img" style="background-image: url(/img/productEx.jpg); background-size: cover; " ></div>
-                    <div class="product-text-wrap">
-                      <a href="">
-                        <div class="product-name">
-                          <span>[냉동] 진한육수 곱창전골</span>
-                        </div>
-                        <div class="product-price-wrap">
-                          <ul>
-                            <li class="product-price">19,900</li>
-                            <li class="product-won">원</li>
-                            <li class="product-servings"> / 2~3인분</li>
-                          </ul>
-                        </div>
-                    </a>
+                <c:forEach var="product" items="${list}" >
+                  <li class="product">
+                    <div class="product-info">
+                      <div class="product-img" style="background-image: url(${product.prodImg}); background-size: cover; " ></div>
+                      <div class="product-text-wrap">
+                        <a href="/product/prod-detail.jsp?prodId=${product.prodId}">
+                          <div class="product-name">
+                            <span>${product.prodName}</span>
+                          </div>
+                          <div class="product-price-wrap">
+                            <ul>
+                              <li class="product-price">${product.price}</li>
+                              <li class="product-won">원</li>
+                              <li class="product-servings"> / ${product.prodServings}</li>
+                            </ul>
+                          </div>
+                        </a>
+                      </div>
                     </div>
-                  </div>
-                </li>
-                <li class="product">
-                  <div class="product-info">
-                    <div class="product-img" style="background-image: url(/img/productEx2.jpg); background-size: cover; " ></div>
-                    <div class="product-text-wrap">
-                      <a href="">
-                        <div class="product-name">
-                          <span>[냉동] 진한육수 곱창전골</span>
-                        </div>
-                        <div class="product-price-wrap">
-                          <ul>
-                            <li class="product-price">19,900</li>
-                            <li class="product-won">원</li>
-                            <li class="product-servings"> / 2~3인분</li>
-                          </ul>
-                        </div>
-                      </a>
-                    </div>
-                  </div>
-                </li>
-                <li class="product">
-                  <div class="product-info">
-                    <div class="product-img" style="background-image: url(/img/productEx3.jpg); background-size: cover; " ></div>
-                    <div class="product-text-wrap">
-                      <a href="">
-                        <div class="product-name">
-                          <span>[냉동] 진한육수 곱창전골</span>
-                        </div>
-                        <div class="product-price-wrap">
-                          <ul>
-                            <li class="product-price">19,900</li>
-                            <li class="product-won">원</li>
-                            <li class="product-servings"> / 2~3인분</li>
-                          </ul>
-                        </div>
-                      </a>
-                    </div>
-                  </div>
-                </li>
-                <li class="product">
-                  <div class="product-info">
-                    <div class="product-img" style="background-image: url(/img/product3.jpg); background-size: cover; " ></div>
-                    <div class="product-text-wrap">
-                      <a href="">
-                        <div class="product-name">
-                          <span>[냉동] 진한육수 곱창전골</span>
-                        </div>
-                        <div class="product-price-wrap">
-                          <ul>
-                            <li class="product-price">19,900</li>
-                            <li class="product-won">원</li>
-                            <li class="product-servings"> / 2~3인분</li>
-                          </ul>
-                        </div>
-                      </a>
-                    </div>
-                  </div>
-                </li>
-                <li class="product">
-                  <div class="product-info">
-                    <div class="product-img" style="background-image: url(/img/product4.jpg); background-size: cover; " ></div>
-                    <div class="product-text-wrap">
-                      <a href="">
-                        <div class="product-name">
-                          <span>[냉동] 진한육수 곱창전골</span>
-                        </div>
-                        <div class="product-price-wrap">
-                          <ul>
-                            <li class="product-price">19,900</li>
-                            <li class="product-won">원</li>
-                            <li class="product-servings"> / 2~3인분</li>
-                          </ul>
-                        </div>
-                      </a>
-                    </div>
-                  </div>
-                </li>
-                <li class="product">
-                  <div class="product-info">
-                    <div class="product-img" style="background-image: url(/img/product5.jpg); background-size: cover; " ></div>
-                    <div class="product-text-wrap">
-                      <a href="">
-                        <div class="product-name">
-                          <span>[냉동] 진한육수 곱창전골</span>
-                        </div>
-                        <div class="product-price-wrap">
-                          <ul>
-                            <li class="product-price">19,900</li>
-                            <li class="product-won">원</li>
-                            <li class="product-servings"> / 2~3인분</li>
-                          </ul>
-                        </div>
-                      </a>
-                    </div>
-                  </div>
-                </li>
+                  </li>
+                </c:forEach>
               </ul>
           </div>
         </div>
