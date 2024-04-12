@@ -52,7 +52,7 @@
     <div class="container">
       <h1 class="title-text">밀리미터 생생리뷰</h1>
       <div class="review-register">
-        <div class="review-user-id">작성자 : chan999</div>
+        <div class="review-user-id">작성자 : 아이디동적변경필요 </div>
         <select class="review-register-title">
           <option>-- 리뷰할 상품을 선택해주세요. --</option>
           <c:forEach var="product" items="${products}">
