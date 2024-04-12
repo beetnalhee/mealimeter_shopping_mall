@@ -14,7 +14,6 @@ import java.util.List;
 
 public class JdbcProductDao implements ProductDao {
     private ConnectionFactory connectionFactory;
-
     Connection conn = null;
     PreparedStatement pstmt = null;
     ResultSet rs = null;
