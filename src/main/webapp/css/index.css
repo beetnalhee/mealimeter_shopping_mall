@@ -69,11 +69,14 @@ fieldset{
 }
 
 #container {
+    width: 1200px;
+    margin: 0px auto;
 }
 
 .contents{
-    padding: 10px;
-    margin: 5px;
+    margin: 0px auto;
+    width: 1200px;
+    min-width: 1200px;
 }
 
 
@@ -938,17 +941,12 @@ main{
 }
 
 /*-----------------------------BOARD------------------------------------*/
-#board-header{
-    display: inline-flex;
-    width: 80vw;
-    margin: 5px auto;
-}
 
 
 
 #board-table{
     margin: 0px auto;
-    width: 80vw;
+    width: 1200px;
     border-collapse: collapse;
 }
 
@@ -965,7 +963,7 @@ tr, th, td {
 }
 
 #line{
-    width: 75vw;
+    width: 1200px;
 }
 
 td a{
@@ -976,9 +974,10 @@ td a{
 #board-header{
     display: inline-flex;
     height: 40px;
-    padding: 0px 5px;
     align-content: center;
     justify-content: space-between;
+    width: 1200px;
+    margin: 10px auto;
 }
 
 #board-write-btn{

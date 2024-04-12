@@ -19,8 +19,6 @@ public interface BoardService {
     // 신규 글쓰기
     public void writeArticle(Article article);
 
-    // 댓글 쓰기
-    public void writeComment(Article article);
 
     // 게시글 목록 반환
     public List<Article> articleList(int rowCount, int requestPage, String type, String value);

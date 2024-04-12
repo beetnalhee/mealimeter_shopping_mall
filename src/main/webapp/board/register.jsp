@@ -11,7 +11,7 @@
 <%--%>--%>
 
 <%
-  int boardId = 10;
+  int boardId = 100;
   if(request.getParameter("boardId") != null) {
     boardId = Integer.parseInt(request.getParameter("boardId"));
   }
@@ -61,11 +61,11 @@
           <input type="hidden" name="boardId" value="<%=boardId%>">
               <div class="board-write-group board-write-list">
                 <label class="board-write-label">작성자</label>
-                <input class="board-write-text" type="text" name="writer" value="${loginMember.id}">
+                <input class="board-write-text" type="text" name="userId" value="${loginMember.id}">
               </div>
             <div class="board-write-group board-write-list">
               <label class="board-write-label">제목</label>
-              <input class="board-write-text" type="text" name="title" >
+              <input class="board-write-text" type="text" name="subject" >
             </div>
             <div class="board-write-group">
               <label class="board-write-label2">내용</label>
