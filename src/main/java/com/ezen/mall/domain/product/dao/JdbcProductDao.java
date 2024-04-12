@@ -65,7 +65,7 @@ public class JdbcProductDao implements ProductDao {
     public Product findProduct(int prodId) {
         Product product = null;
         StringBuilder sql = new StringBuilder();
-        sql.append("SELECT product_id, product_type, product_date, TO_CHAR(price, 'FM999,999') price, brief, product_img, product_name, product_status, product_servings, product_cookingtime")
+        sql.append("SELECT product_id, product_type, product_date, price, brief, product_img, product_name, product_status, product_servings, product_cookingtime")
                 .append(" FROM products")
                 .append(" WHERE product_id = ?");
 
