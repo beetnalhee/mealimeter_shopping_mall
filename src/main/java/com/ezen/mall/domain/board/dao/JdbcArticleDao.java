@@ -20,7 +20,7 @@ public class JdbcArticleDao implements ArticleDao{
     public List<Board> findByBoardAll() throws SQLException {
         List<Board> list = new ArrayList<>();
         StringBuilder sql = new StringBuilder();
-        sql.append(" SELECT board_id, category, title, description")
+        sql.append(" SELECT board_id, category, board_title, descriptions")
                 .append(" FROM board")
                 .append(" ORDER BY board_id");
 
@@ -32,8 +32,8 @@ public class JdbcArticleDao implements ArticleDao{
                 Board board = new Board();
                 board.setBoardId(rs.getInt("board_id"));
                 board.setCategory(rs.getInt("category"));
-                board.setTitle(rs.getString("title"));
-                board.setDescription(rs.getString("description"));
+                board.setBoardTitle(rs.getString("board_title"));
+                board.setDescriptions(rs.getString("descriptions"));
                 list.add(board);
             }
         }
@@ -52,8 +52,8 @@ public class JdbcArticleDao implements ArticleDao{
     @Override
     public void createArticle(Article article) throws SQLException {
         StringBuilder sql = new StringBuilder();
-        sql.append(" INSERT INTO article (article_id, board_id, writer, title, content, passwd, group_no, level_no, order_no)")
-            .append(" VALUES (article_id_seq.NEXTVAL, ?, ?, ?, ?, ?, article_id_seq.CURRVAL, 0, 0)");
+        sql.append(" INSERT INTO article (article_id, board_id, user_id, subject, content, passwd, group_no, level_no, order_no)")
+            .append(" VALUES (article_seq.NEXTVAL, ?, ?, ?, ?, ?, article_seq.CURRVAL, 0, 0)");
 
         conn = connectionFactory.getConnection();
         pstmt = null;
@@ -61,8 +61,8 @@ public class JdbcArticleDao implements ArticleDao{
         try {
             pstmt = conn.prepareStatement(sql.toString());
             pstmt.setInt(1, article.getBoardId());
-            pstmt.setString(2, article.getWriter());
-            pstmt.setString(3, article.getTitle());
+            pstmt.setString(2, article.getUserId());
+            pstmt.setString(3, article.getSubject());
             pstmt.setString(4, article.getContent());
             pstmt.setString(5, article.getPasswd());
             pstmt.executeUpdate();
@@ -76,37 +76,6 @@ public class JdbcArticleDao implements ArticleDao{
         }
     }
 
-    @Override
-    public void createComment(Article article) throws SQLException {
-        StringBuilder sql = new StringBuilder();
-        sql.append(" INSERT INTO article (article_id, board_id, writer, title, content, passwd, group_no, level_no, order_no)")
-                .append(" VALUES      (article_id_seq.NEXTVAL, 10, ?, ?, ?, ?, ?, ? + 1,")
-                .append(" (SELECT MAX(order_no) + 1")
-                .append("  FROM   article")
-                .append("  WHERE  board_id = 10 AND group_no = ?))");
-
-        conn = connectionFactory.getConnection();
-        pstmt = null;
-
-        try {
-            pstmt = conn.prepareStatement(sql.toString());
-            pstmt.setString(1, article.getWriter());
-            pstmt.setString(2, article.getTitle());
-            pstmt.setString(3, article.getContent());
-            pstmt.setString(4, article.getPasswd());
-            pstmt.setInt(5, article.getGroupNo());
-            pstmt.setInt(6, article.getLevelNo());
-            pstmt.setInt(7, article.getGroupNo());
-            pstmt.executeUpdate();
-        } finally {
-            try {
-                if (pstmt != null) pstmt.close();
-                if (conn != null) conn.close();
-            } catch (SQLException e) {
-                throw new RuntimeException(e);
-            }
-        }
-    }
 
     @Override
     public List<Article> findByAll(int rowCount, int requestPage, String type, String value) throws SQLException {
@@ -115,19 +84,19 @@ public class JdbcArticleDao implements ArticleDao{
             type = null;
         }
         StringBuilder sql = new StringBuilder();
-        sql.append("SELECT article_id, board_id, title, writer, group_no, level_no, order_no, regdate, hitcount ")
-                .append(" FROM   (SELECT article_id, board_id, CEIL(rownum / ?) request_page, title, writer, group_no, level_no, order_no, TO_CHAR(regdate, 'YYYY-MM-DD') regdate, hitcount")
-                .append(" FROM   (SELECT article_id, board_id, title, writer, group_no, level_no, order_no, regdate, hitcount ")
+        sql.append("SELECT article_id, board_id, subject, user_id, group_no, level_no, order_no, regdate, hitcount ")
+                .append(" FROM   (SELECT article_id, board_id, CEIL(rownum / ?) request_page, subject, user_id, group_no, level_no, order_no, TO_CHAR(regdate, 'YYYY-MM-DD') regdate, hitcount")
+                .append(" FROM   (SELECT article_id, board_id, subject, user_id, group_no, level_no, order_no, regdate, hitcount ")
                 .append(" FROM   article ")
-                .append(" WHERE  board_id = 10");
+                .append(" WHERE  board_id = 100");
         if(type != null) {
             value = "%"+value+"%";
             switch (type){
-                case "t" : sql.append(" AND title LIKE ?"); break;
+                case "t" : sql.append(" AND subject LIKE ?"); break;
                 case "c" : sql.append(" AND content LIKE ?"); break;
-                case "w" : sql.append(" AND writer LIKE ?"); break;
-                case "tc" : sql.append(" AND writer LIKE ? OR content LIKE ?"); break;
-                case "tcw" : sql.append(" AND writer LIKE ? OR content LIKE ? OR writer LIKE ?"); break;
+                case "w" : sql.append(" AND user_id LIKE ?"); break;
+                case "tc" : sql.append(" AND user_id LIKE ? OR content LIKE ?"); break;
+                case "tcw" : sql.append(" AND user_id LIKE ? OR content LIKE ? OR subject LIKE ?"); break;
             }
         }
         sql.append(" ORDER  BY group_no DESC, order_no ASC")
@@ -165,8 +134,8 @@ public class JdbcArticleDao implements ArticleDao{
                 Article article = new Article();
                 article.setArticleId(rs.getInt("article_id"));
                 article.setBoardId(rs.getInt("board_id"));
-                article.setTitle(rs.getString("title"));
-                article.setWriter(rs.getString("writer"));
+                article.setSubject(rs.getString("subject"));
+                article.setUserId(rs.getString("user_id"));
                 article.setGroupNo(rs.getInt("group_no"));
                 article.setLevelNo(rs.getInt("level_no"));
                 article.setOrderNo(rs.getInt("order_no"));
@@ -191,10 +160,10 @@ public class JdbcArticleDao implements ArticleDao{
     public Article findArticle(int articleId) {
         Article article = null;
         StringBuilder sql = new StringBuilder();
-        sql.append("SELECT article_id, board_id, title, writer, content, TO_CHAR(regdate, 'YYYY-MM-DD HH:MI') regdate, hitcount , group_no, level_no, order_no")
-                .append(" FROM   (SELECT article_id, board_id, title, writer, content, regdate, hitcount, group_no, level_no, order_no ")
+        sql.append("SELECT article_id, board_id, subject, user_id, content, TO_CHAR(regdate, 'YYYY-MM-DD HH:MI') regdate, hitcount , group_no, level_no, order_no")
+                .append(" FROM   (SELECT article_id, board_id, subject, user_id, content, regdate, hitcount, group_no, level_no, order_no ")
                 .append(" FROM   article ")
-                .append(" WHERE  board_id = 10)")
+                .append(" WHERE  board_id = 100)")
                 .append(" WHERE  article_id = ?");
 
         try {
@@ -206,8 +175,8 @@ public class JdbcArticleDao implements ArticleDao{
                 article = new Article();
                 article.setArticleId(rs.getInt("article_id"));
                 article.setBoardId(rs.getInt("board_id"));
-                article.setTitle(rs.getString("title"));
-                article.setWriter(rs.getString("writer"));
+                article.setSubject(rs.getString("subject"));
+                article.setUserId(rs.getString("user_id"));
                 article.setContent(rs.getString("content"));
                 article.setOrderNo(rs.getInt("order_no"));
                 article.setGroupNo(rs.getInt("group_no"));
@@ -242,11 +211,11 @@ public class JdbcArticleDao implements ArticleDao{
         if (type != null) {
             value = "%" + value + "%";
             switch (type) {
-                case "t": sql.append(" WHERE title LIKE ?"); break;
+                case "t": sql.append(" WHERE subject LIKE ?"); break;
                 case "c": sql.append(" WHERE content LIKE ?"); break;
-                case "w": sql.append(" WHERE writer LIKE ?"); break;
-                case "tc": sql.append(" WHERE writer LIKE ? OR content LIKE ?"); break;
-                case "tcw": sql.append(" WHERE writer LIKE ? OR content LIKE ? OR writer LIKE ?"); break;
+                case "w": sql.append(" WHERE user_id LIKE ?"); break;
+                case "tc": sql.append(" WHERE user_id LIKE ? OR content LIKE ?"); break;
+                case "tcw": sql.append(" WHERE user_id LIKE ? OR content LIKE ? OR subject LIKE ?"); break;
             }
         }
 
@@ -290,7 +259,7 @@ public class JdbcArticleDao implements ArticleDao{
         StringBuilder sql = new StringBuilder();
         sql.append(" UPDATE ARTICLE")
                 .append(" SET hitcount = hitcount + 1")
-                .append("  WHERE BOARD_ID = 10 AND ARTICLE_ID = ?");
+                .append("  WHERE BOARD_ID = 100 AND ARTICLE_ID = ?");
 
         conn = connectionFactory.getConnection();
         pstmt = null;
@@ -311,10 +280,10 @@ public class JdbcArticleDao implements ArticleDao{
 
     public static void main(String[] args) throws SQLException {
         ArticleDao articleDao = new JdbcArticleDao();
-//        Article article = new Article(1, 10, "chan999", "시험삼아", "해봅니다", "03/04/24", 10, "9999", 1, 0, 0);
-//
-//        articleDao.createComment(article);
-
-        articleDao.updateArticleHitCount(650);
+        Article article = articleDao.findArticle(100);
+        List<Article> list = articleDao.findByAll(10, 1, null, null);
+        for (Article article1 : list) {
+            System.out.println(article1);
+        }
     }
 }

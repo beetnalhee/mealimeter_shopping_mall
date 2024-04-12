@@ -18,7 +18,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>밀리소식 : ${article.title}</title>
+  <title>밀리소식 : ${article.subject}</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
@@ -46,11 +46,11 @@
 
       <section id="section">
         <div class="contents">
-          <h1 class="board-text">${article.title}</h1>
+          <h1 class="board-text">${article.subject}</h1>
           <form id="board-write-form" action="/board/register-action.jsp" method="post">
             <div class="board-write-group board-write-list">
               <label class="board-write-label">작성자</label>
-              <input class="board-write-text" type="text" name="writer" value="${article.writer}">
+              <input class="board-write-text" type="text" name="writer" value="${article.userId}">
             </div>
             <div class="board-write-group board-write-list">
             <label class="board-write-label">등록일시</label>
@@ -62,7 +62,7 @@
             </div>
           </form>
           <div id="article-btn-list">
-          <a href="/board/comment.jsp?boardId=${article.boardId}&articleId=${article.articleId}&title=${article.title}" class="article-btn">댓글쓰기</a>
+          <a href="/board/comment.jsp?boardId=${article.boardId}&articleId=${article.articleId}&title=${article.subject}" class="article-btn">댓글쓰기</a>
           <a href="list.jsp" class="article-btn">목록</a>
           <a href="#" class="article-btn">수정</a>
         </div>

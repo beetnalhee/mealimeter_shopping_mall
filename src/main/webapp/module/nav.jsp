@@ -21,7 +21,7 @@
           <a href="/review/review.jsp">리뷰</a>
         </li>
         <li class="nav-list-text">
-          <a href="/board/list.jsp">밀리소식</a>
+          <a href="/board/list.jsp?boardId=100">밀리소식</a>
         </li>
       </ul>
     </div>

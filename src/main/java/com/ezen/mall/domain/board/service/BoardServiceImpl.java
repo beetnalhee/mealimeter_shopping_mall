@@ -30,14 +30,6 @@ public class BoardServiceImpl implements BoardService{
         }
     }
 
-    @Override
-    public void writeComment(Article article) {
-        try {
-            articleDao.createComment(article);
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-    }
 
     @Override
     public List<Article> articleList(int rowCount, int requestPage, String type, String value) {
@@ -69,7 +61,7 @@ public class BoardServiceImpl implements BoardService{
 
     public static void main(String[] args) {
         BoardService boardService = new BoardServiceImpl();
-        Article article = new Article(650, 10, "chan999", "시험삼아", "해봅니다", "03/04/24", 10, "9999", 650, 0, 0);
-        boardService.writeComment(article);
+        Article article = new Article(101, 100, "chan999", "시험삼아", "해봅니다", "03/04/24", 10, "9999", null, 101, 0, 0, 0);
+        boardService.writeArticle(article);
     }
 }

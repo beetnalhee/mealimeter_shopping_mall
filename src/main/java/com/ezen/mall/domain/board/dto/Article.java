@@ -8,30 +8,34 @@ package com.ezen.mall.domain.board.dto;
 public class Article {
     private int articleId;
     private int boardId;
-    private String writer;
-    private String title;
+    private String userId;
+    private String subject;
     private String content;
     private String regdate;
     private int hitcount;
     private String passwd;
+    private String attachFile;
     private int groupNo;
     private int levelNo;
     private int orderNo;
+    private int adminNo;
 
     public Article(){}
 
-    public Article(int articleId, int boardId, String writer, String title, String content, String date, int hitcount, String passwd, int groupNo, int levelNo, int orderNo) {
+    public Article(int articleId, int boardId, String userId, String subject, String content, String regdate, int hitcount, String passwd, String attachFile, int groupNo, int levelNo, int orderNo, int adminNo) {
         this.articleId = articleId;
         this.boardId = boardId;
-        this.writer = writer;
-        this.title = title;
+        this.userId = userId;
+        this.subject = subject;
         this.content = content;
-        this.regdate = date;
+        this.regdate = regdate;
         this.hitcount = hitcount;
         this.passwd = passwd;
+        this.attachFile = attachFile;
         this.groupNo = groupNo;
         this.levelNo = levelNo;
         this.orderNo = orderNo;
+        this.adminNo = adminNo;
     }
 
     public int getArticleId() {
@@ -50,20 +54,36 @@ public class Article {
         this.boardId = boardId;
     }
 
-    public String getWriter() {
-        return writer;
+    public String getUserId() {
+        return userId;
     }
 
-    public void setWriter(String writer) {
-        this.writer = writer;
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
 
-    public String getTitle() {
-        return title;
+    public String getSubject() {
+        return subject;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public void setSubject(String subject) {
+        this.subject = subject;
+    }
+
+    public String getAttachFile() {
+        return attachFile;
+    }
+
+    public void setAttachFile(String attachFile) {
+        this.attachFile = attachFile;
+    }
+
+    public int getAdminNo() {
+        return adminNo;
+    }
+
+    public void setAdminNo(int adminNo) {
+        this.adminNo = adminNo;
     }
 
     public String getContent() {
@@ -124,18 +144,20 @@ public class Article {
 
     @Override
     public String toString() {
-        return "Atricle{" +
+        return "Article{" +
                 "articleId=" + articleId +
                 ", boardId=" + boardId +
-                ", writer='" + writer + '\'' +
-                ", title='" + title + '\'' +
+                ", userId='" + userId + '\'' +
+                ", subject='" + subject + '\'' +
                 ", content='" + content + '\'' +
-                ", date='" + regdate + '\'' +
+                ", regdate='" + regdate + '\'' +
                 ", hitcount=" + hitcount +
                 ", passwd='" + passwd + '\'' +
+                ", attachFile='" + attachFile + '\'' +
                 ", groupNo=" + groupNo +
                 ", levelNo=" + levelNo +
                 ", orderNo=" + orderNo +
+                ", adminNo=" + adminNo +
                 '}';
     }
 }

@@ -3,16 +3,16 @@ package com.ezen.mall.domain.board.dao;
 public class Board {
     int boardId;
     int category;
-    String title;
-    String description;
+    String boardTitle;
+    String descriptions;
 
     public Board(){}
 
-    public Board(int boardId, int category, String title, String description) {
+    public Board(int boardId, int category, String boardTitle, String descriptions) {
         this.boardId = boardId;
         this.category = category;
-        this.title = title;
-        this.description = description;
+        this.boardTitle = boardTitle;
+        this.descriptions = descriptions;
     }
 
     public int getBoardId() {
@@ -31,20 +31,21 @@ public class Board {
         this.category = category;
     }
 
-    public String getTitle() {
-        return title;
+
+    public String getBoardTitle() {
+        return boardTitle;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public void setBoardTitle(String boardTitle) {
+        this.boardTitle = boardTitle;
     }
 
-    public String getDescription() {
-        return description;
+    public String getDescriptions() {
+        return descriptions;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setDescriptions(String descriptions) {
+        this.descriptions = descriptions;
     }
 
     @Override
@@ -52,8 +53,8 @@ public class Board {
         return "Board{" +
                 "boardId=" + boardId +
                 ", category=" + category +
-                ", title='" + title + '\'' +
-                ", description='" + description + '\'' +
+                ", title='" + boardTitle + '\'' +
+                ", description='" + descriptions + '\'' +
                 '}';
     }
 }

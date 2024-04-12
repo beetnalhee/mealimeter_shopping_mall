@@ -7,7 +7,7 @@
 <%@ page contentType="text/html; charset=utf-8" pageEncoding="utf-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%
-  int boardId = 10;
+  int boardId = 100;
   if(request.getParameter("boardId") != null) {
     boardId = Integer.parseInt(request.getParameter("boardId"));
   }
@@ -78,7 +78,6 @@
 
     <!-- 메인 시작 -->
     <div id="container">
-      <section id="section">
         <div class="contents">
           <div>
             <h1 class="title-text">밀리소식</h1>
@@ -128,8 +127,8 @@
                         </c:forEach>
                         <c:if test="${article.levelNo != 0}"><img src="/img/re.gif"></c:if>
 
-                        <a href="read.jsp?boardId=${article.boardId}&articleId=${article.articleId}">${article.title}</a></td>
-                    <td>${article.writer}</td>
+                        <a href="read.jsp?boardId=${article.boardId}&articleId=${article.articleId}">${article.subject}</a></td>
+                    <td>${article.userId}</td>
                     <td>${article.hitcount}</td>
                     <td>${article.regdate}</td>
                   </tr>
@@ -165,7 +164,6 @@
             </ul>
           </div>
         </div>
-      </section>
     </div>
   </main>
   <!-- 메인 종료 -->
