@@ -15,7 +15,6 @@
     href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Gasoek+One&family=IBM+Plex+Sans+KR&family=Nanum+Gothic&display=swap"
     rel="stylesheet">
   <link rel="stylesheet" href="/css/index.css">
-</head>
 
 <body>
 <!-- 헤더 시작 -->
