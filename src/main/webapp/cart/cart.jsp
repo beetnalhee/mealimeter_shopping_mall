@@ -2,6 +2,10 @@
 <%@ page import="com.ezen.mall.web.common.EzenUtil" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
+<%
+  session.getAttribute("cartlist");
+%>
+
 
 <!DOCTYPE html>
 <html lang="ko">
@@ -50,6 +54,7 @@
             </div>
             <div class="cart-list">
               <ul>
+
                 <li class="cart-list-prod">
                   <div class="check-box">
                     <input type="checkbox" id="order-no1">
@@ -84,40 +89,7 @@
                     <button type="button">X</button>
                   </div>
                 </li>
-                <li class="cart-list-prod">
-                  <div class="check-box">
-                    <input type="checkbox" id="order-no2">
-                    <label for="order-no2"></label>
-                  </div>
-                  <div class="cart-img-wrap">
-                    <img src="/img/product4.jpg">
-                  </div>
-                  <div class="cart-prod-wrap">
-                    <div class="cart-prod-name">
-                      <a href="" >[냉장] 평양식 어복쟁반</a>
-                    </div>
-                    <div class="cart-prod-price">
-                      <ul>
-                        <li>34,800</li>
-                        <li>원</li>
-                      </ul>
-                    </div>
-                  </div>
-                  <div class="cart-prod-count">
-                    <a href="#" title="수량 빼기" class="btn-down">-</a>
-                    <input type="text" class="quantity" value="1" readonly>
-                    <a href="#" title="수량 더하기" class="btn-up">+</a>
-                  </div>
-                  <div class="price-sum">
-                    <ul>
-                      <li>34,800</li>
-                      <li>원</li>
-                    </ul>
-                  </div>
-                  <div class="prod-del">
-                    <button type="button">X</button>
-                  </div>
-                </li>
+
               </ul>
             </div>
             <div class="total-payment">

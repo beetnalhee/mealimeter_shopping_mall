@@ -7,27 +7,24 @@ import java.util.List;
 
 public class CartService  {
 
-    private List<Product> items;
+    private List<CartList> cartLists;
 
     public CartService(){
-        items = new ArrayList<>();
+        cartLists = new ArrayList<>();
     }
     // 카트에 상품 담기 기능
-    public void addItem(Product product){
-        items.add(product);
+    public void addCart(CartList cartList){
+        cartLists.add(cartList);
     }
 
     // 카트 전체목록 반환 기능
-    public List<Product> ListAll(){
-        return items;
+    public List<CartList> ListAll(){
+        return cartLists;
     }
-
-    // 아이템 삭제기능
-
 
     // 아이템 전체삭제
     public void removeAll(){
-        items.clear();
+        cartLists.clear();
     }
 
 }

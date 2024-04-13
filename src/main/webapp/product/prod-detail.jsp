@@ -59,6 +59,11 @@
       }
     }
 
+    function addCart() {
+      let quantity = document.querySelector(".quantity").innerText;
+      location.href='/product/prod-detail-action.jsp?prodId=${product.prodId}&quantity='+quantity;
+    }
+
     window.onload = updateTotal;
   </script>
 </head>
@@ -112,12 +117,12 @@
                   </div>
                 </li>
                 <li class="prod-detail-total">
-                  <div>수량 <span class="prod-total-quantity" name="volume">1</span>개</div>
+                  <div>수량 <span class="prod-total-quantity">1</span>개</div>
                   <div class="prod-total-price">${product.price}원</div>
                 </li>
                 <li class="prod-btn-wrap">
-                  <button type="button">장바구니 담기</button>
-                  <button type="button">주문하기</button>
+                  <button type="button" onclick="addCart()" >장바구니 담기</button>
+                  <button type="button" onclick="location.href='/order/order.jsp'">주문하기</button>
                 </li>
               </ul>
             </div>

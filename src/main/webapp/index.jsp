@@ -55,9 +55,10 @@
                 </li>
                 <li class="suggestion-img-wrap"><img class="suggestion-img" src="/img/jjuggumi.png"></li>
                 <li class="suggestion-product">
+                  <a href="/product/prod-detail.jsp?prodId=102">
                   <div class="ai-product-name">[냉동]쫄깃탱글 불쭈꾸미볶음</div>
                   <div class="ai-product-price">10,500원</div>
-
+                  </a>
                 </li>
               </ul>
             </div>
