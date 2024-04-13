@@ -4,13 +4,13 @@ import com.ezen.mall.domain.product.dto.Product;
 
 public class CartList {
     private Product product;
-    private int volume;
+    private int quantity;
 
     public CartList(){}
 
-    public CartList(Product product, int volume) {
+    public CartList(Product product, int quantity) {
         this.product = product;
-        this.volume = volume;
+        this.quantity = quantity;
     }
 
     public Product getProduct() {
@@ -21,19 +21,19 @@ public class CartList {
         this.product = product;
     }
 
-    public int getVolume() {
-        return volume;
+    public int getQuantity() {
+        return quantity;
     }
 
-    public void setVolume(int volume) {
-        this.volume = volume;
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
     }
 
     @Override
     public String toString() {
         return "CartList{" +
                 "product=" + product +
-                ", volume=" + volume +
+                ", volume=" + quantity +
                 '}';
     }
 }

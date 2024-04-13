@@ -45,20 +45,20 @@
         <div class="index-wrap">
           <div class="product-list">
             <ul>
-              <c:forEach var="product" items="${list}" >
+              <c:forEach var="cartItem" items="${list}" >
               <li class="product">
                 <div class="product-info">
-                  <div class="product-img" style="background-image: url(${product.prodImg}); background-size: cover; " ></div>
+                  <div class="product-img" style="background-image: url(${cartItem.prodImg}); background-size: cover; " ></div>
                   <div class="product-text-wrap">
-                    <a href="/product/prod-detail.jsp?prodId=${product.prodId}">
+                    <a href="/product/prod-detail.jsp?prodId=${cartItem.prodId}">
                       <div class="product-name">
-                        <span>${product.prodName}</span>
+                        <span>${cartItem.prodName}</span>
                       </div>
                       <div class="product-price-wrap">
                         <ul>
-                          <li class="product-price">${product.price}</li>
+                          <li class="product-price">${cartItem.price}</li>
                           <li class="product-won">원</li>
-                          <li class="product-servings"> / ${product.prodServings}</li>
+                          <li class="product-servings"> / ${cartItem.prodServings}</li>
                         </ul>
                       </div>
                     </a>

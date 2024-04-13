@@ -46,8 +46,8 @@
         <div class="review-user-id">작성자 : chan999</div>
         <select class="review-register-title">
           <option>-- 리뷰할 상품을 선택해주세요. --</option>
-          <c:forEach var="product" items="${list}">
-            <option value="review-title">${product.prodName}</option>
+          <c:forEach var="cartItem" items="${list}">
+            <option value="review-title">${cartItem.prodName}</option>
           </c:forEach>
         </select>
         <div class="review-register-wrap">

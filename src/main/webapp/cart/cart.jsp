@@ -1,9 +1,26 @@
 <%@ page contentType="text/html; charset=utf-8" pageEncoding="utf-8" %>
 <%@ page import="com.ezen.mall.web.common.EzenUtil" %>
+<%@ page import="com.ezen.mall.domain.cart.CartList" %>
+<%@ page import="java.util.List" %>
+<%@ page import="java.util.ArrayList" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <%
-  session.getAttribute("cartlist");
+  session.getAttribute("cartList");
+
+  List<CartList> cartList = (List<CartList>) session.getAttribute("cartList");
+  if (cartList == null) {
+    cartList = new ArrayList<>();
+    session.setAttribute("cartList", cartList);
+  }
+
+  // 모든 상품 가격 합산
+  int totalPrice = 0;
+  for (CartList cartItem : cartList) {
+    int price = Integer.parseInt(cartItem.getProduct().getPrice());
+    int quantity = cartItem.getQuantity();
+    totalPrice += price * quantity;
+  }
 %>
 
 
@@ -21,6 +38,7 @@
     href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Gasoek+One&family=IBM+Plex+Sans+KR&family=Nanum+Gothic&display=swap"
     rel="stylesheet">
   <link rel="stylesheet" href="/css/index.css">
+  </head>
 
 <body>
 <!-- 헤더 시작 -->
@@ -55,17 +73,50 @@
             <div class="cart-list">
               <ul>
 
+                <c:forEach var="cartItem" items="${cartList}">
+
+                  <script>
+                    let count= parseInt(${cartItem.quantity});
+
+                    function updateTotal() {
+                      let priceTag = parseInt("${cartItem.product.price}");
+
+                      document.querySelector(".price-sum").innerText = (priceTag * count) + "원"; // 합계 계산 및 업데이트
+                    }
+
+
+                    function plus(){
+                      count=count+1;
+                      document.querySelector(".cart-quantity").innerText=count;
+                      updateTotal();
+                    }
+
+                    function minus(){
+                      if(count > 1){
+                        count=count-1;
+                        document.querySelector(".cart-quantity").innerText=count;
+                        updateTotal();
+                      } else {
+                        count = 1;
+                        document.querySelector(".cart-quantity").innerText=count;
+                        updateTotal();
+                      }
+                    }
+
+                    window.onload = updateTotal;
+                  </script>
+
                 <li class="cart-list-prod">
                   <div class="check-box">
                     <input type="checkbox" id="order-no1">
                     <label for="order-no1"></label>
                   </div>
                   <div class="cart-img-wrap">
-                    <img src="/img/product3.jpg">
+                    <img src="${cartItem.product.prodImg}">
                   </div>
                   <div class="cart-prod-wrap">
                     <div class="cart-prod-name">
-                      <a href="" >[냉동] 육수가득 소불고기 전골</a>
+                      <a href="" >${cartItem.product.prodName}</a>
                     </div>
                     <div class="cart-prod-price">
                       <ul>
@@ -75,42 +126,39 @@
                     </div>
                   </div>
                   <div class="cart-prod-count">
-                    <a href="#" title="수량 빼기" class="btn-down">-</a>
-                    <input type="text" class="quantity" value="1" readonly>
-                    <a href="#" title="수량 더하기" class="btn-up">+</a>
+                    <div class="prod-btn-quantity">
+                      <button type="button" title="수량 빼기" class="btn-down" onclick="minus()">-</button>
+                      <span class="cart-quantity">${cartItem.quantity}</span>
+                      <button type="button" title="수량 더하기" class="btn-up" onclick="plus()">+</button>
+                    </div>
                   </div>
-                  <div class="price-sum">
-                    <ul>
-                      <li>16,900</li>
-                      <li>원</li>
-                    </ul>
-                  </div>
+                  <div class="price-sum">${cartItem.product.price}원</div>
                   <div class="prod-del">
                     <button type="button">X</button>
                   </div>
                 </li>
-
+                </c:forEach>
               </ul>
             </div>
             <div class="total-payment">
               <ul>
                 <li>
                   <div>총 상품금액</div>
-                  <div class="total-prod-price">51,700원</div>
+                  <div class="total-prod-price"><%=totalPrice%>원</div>
                 </li>
                 <li>
                   <div class="plus"> + </div>
                 </li>
                 <li>
                   <div>배송비</div>
-                  <div class="total-delivery-price">3,000원</div>
+                  <div class="total-delivery-price">무료배송</div>
                 </li>
                 <li>
                   <div class="equal"> = </div>
                 </li>
                 <li>
                   <div>총 결제금액</div>
-                  <div class="total-price">54,700원</div>
+                  <div class="total-price"><%=totalPrice%>원</div>
                 </li>
               </ul>
             </div>

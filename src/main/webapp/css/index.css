@@ -928,9 +928,10 @@ main{
     height: 25px;
 }
 
-.quantity{
+.quantity, .cart-quantity{
     align-content: center;
 }
+
 
 .prod-btn-quantity button{
     width: 25px;
