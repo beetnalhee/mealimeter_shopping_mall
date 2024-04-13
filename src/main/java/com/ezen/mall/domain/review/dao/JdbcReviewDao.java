@@ -21,8 +21,8 @@ public class JdbcReviewDao implements ReviewDao {
     @Override
     public void createReview(Review review) throws SQLException {
         StringBuilder sql = new StringBuilder();
-        sql.append(" INSERT INTO review (review_id, subject, content, regdate, attach_file, order_no, order_id, user_id, board_id, product_id)")
-                .append(" VALUES(review_seq.nextval,?,?, TO_DATE('2024-04-11', 'YYYY-MM-DD'),'nakji.jpg', 0 , 0, ?, 100, ?)");
+        sql.append(" INSERT INTO review (review_id, subject, content, attach_file, order_no, order_id, user_id, board_id, product_id)")
+                .append(" VALUES(review_seq.nextval,?,?,'nakji.jpg', 0 , 0, ?, 100, ?)");
 
         conn = connectionFactory.getConnection();
         pstmt = null;

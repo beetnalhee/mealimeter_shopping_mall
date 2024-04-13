@@ -22,7 +22,28 @@
   ReviewService reviewService = new ReviewServiceImpl();
   List<Review> list = reviewService.reviewList();
   request.setAttribute("list", list);
+
+ String userId =(String)request.getSession().getAttribute("userId");
+
+ String reviewPageUrl = "/review/review.jsp";
+
 %>
+
+<c:url var="review" value="<%= reviewPageUrl %>">
+  <c:param name="boardId" value="${param.boardId}" />
+</c:url>
+
+<c:if test="${empty loginMember}">
+  <c:set var="message" value="리뷰작성은 로그인 후 가능합니다." scope="request" />
+  <c:set var="referer" value="<%= reviewPageUrl %>" scope="request" />
+<%--  <jsp:forward page="/member/login.jsp" />--%>
+</c:if>
+
+<%--  String userId =(String)request.getSession().getAttribute("userId");--%>
+<%--  if (userId == null) {--%>
+<%--    response.sendRedirect("/login.jsp");--%>
+<%--  }--%>
+
 
 <head>
   <meta charset="UTF-8">
@@ -51,22 +72,29 @@
     <!-- 메인 시작 -->
     <div class="container">
       <h1 class="title-text">밀리미터 생생리뷰</h1>
+      <fieldset>
       <div class="review-register">
-        <div class="review-user-id">작성자 : 아이디동적변경필요 </div>
-        <select class="review-register-title">
+        <form action="/review/review-action.jsp" method="post" >
+<%--        <div class="review-user-id" name="userId">작성자 : ${loginMember.id} </div>--%>
+        <input type="text" class="review-user-id" name="userId" readonly value="${loginMember.id}"></input>
+        <select class="review-register-title" name="productId">
           <option>-- 리뷰할 상품을 선택해주세요. --</option>
           <c:forEach var="product" items="${products}">
-            <option value="review-title">${product.prodName}</option>
+            <option value="${product.prodId}">${product.prodName}</option>
           </c:forEach>
         </select>
+          <input class="review-subject" type="text" name="subject" placeholder="제목">
         <div class="review-register-wrap">
-          <textarea rows="5" cols="120"></textarea>
-          <a class="review-register-btn" href="" >등록</a>
+          <textarea name="content" rows="5" cols="120" placeholder="리뷰를 작성하려면 로그인해주세요"></textarea>
+          <a href="${review}"><input type="submit" class="review-register-btn" onclick="checkLogin()" value="등록"></a>
+<%--          <a class="review-register-btn" href="" >등록</a>--%>
         </div>
           <input type="file">
       </div>
+      </fieldset>
+
       <div class="review">
-        <h2>리뷰 333건</h2>
+        <h2>리뷰 <%= list.size() %>건</h2>
         <div class="review-list">
 
 
@@ -74,7 +102,7 @@
           <div class="review-wrap">
           <ul>
             <il><strong>${review.subject}</strong></il>
-            <li>${review.regdate} ㅣ ${review.userId}</li>
+            <li> ${review.regdate} ㅣ ${review.userId}</li>
             <div class="review-content">
               <div class="review-img" style="background-image: url(/img/prod104.jpg); background-size: cover;"></div>
               <div class="review-text">
@@ -96,6 +124,20 @@
   <jsp:include page="/module/footer.jsp" />
   <!-- footer 종료 -->
 </div>
+
+<script type="text/javascript">
+  function checkLogin() {
+    if("${empty loginMember}") {
+      alert("리뷰 작성을 위해서는 먼저 로그인이 필요합니다.");
+
+      return false; // 로그인 페이지로 이동하지 않음
+    } else {
+      return true; // 리뷰 등록 페이지로 이동
+    }
+  }
+</script>
+
+
 </body>
 
 </html>
