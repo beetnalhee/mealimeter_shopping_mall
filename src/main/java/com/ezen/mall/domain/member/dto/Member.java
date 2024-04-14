@@ -8,9 +8,9 @@ public class Member {
     private String regdate;
     private String picture;
     private String phonenumber;
-    private String zip_code;
-    private String user_address;
-    private String grade_rating;
+    private String zipCode;
+    private String userAddress;
+    private String gradeRating;
 
     public Member(){}
 
@@ -18,13 +18,13 @@ public class Member {
 //        this(id, passwd, name, email, null, null);
 //    }
 
-    public Member(String id, String passwd, String name, String email, String phonenumber, String zip_code, String user_address) {
-        this(id, passwd, name, email,null,null, phonenumber, zip_code, user_address,null);
+    public Member(String id, String passwd, String name, String email, String phonenumber, String zipCode, String userAddress) {
+        this(id, passwd, name, email,null,null, phonenumber, zipCode, userAddress,null);
 
     }
 
 
-    public Member(String id, String passwd, String name, String email, String regdate, String picture, String phonenumber, String zip_code, String user_address, String grade_rating) {
+    public Member(String id, String passwd, String name, String email, String regdate, String picture, String phonenumber, String zipCode, String userAddress, String gradeRating) {
         this.id = id;
         this.passwd = passwd;
         this.name = name;
@@ -32,9 +32,9 @@ public class Member {
         this.regdate = regdate;
         this.picture = picture;
         this.phonenumber = phonenumber;
-        this.zip_code = zip_code;
-        this.user_address = user_address;
-        this.grade_rating = grade_rating;
+        this.zipCode = zipCode;
+        this.userAddress = userAddress;
+        this.gradeRating = gradeRating;
     }
 
     public String getId() {
@@ -93,28 +93,28 @@ public class Member {
         this.phonenumber = phonenumber;
     }
 
-    public String getZip_code() {
-        return zip_code;
+    public String getZipCode() {
+        return zipCode;
     }
 
-    public void setZip_code(String zip_code) {
-        this.zip_code = zip_code;
+    public void setZipCode(String zipCode) {
+        this.zipCode = zipCode;
     }
 
-    public String getUser_address() {
-        return user_address;
+    public String getUserAddress() {
+        return userAddress;
     }
 
-    public void setUser_address(String user_address) {
-        this.user_address = user_address;
+    public void setUserAddress(String userAddress) {
+        this.userAddress = userAddress;
     }
 
-    public String getGrade_rating() {
-        return grade_rating;
+    public String getGradeRating() {
+        return gradeRating;
     }
 
-    public void setGrade_rating(String grade_rating) {
-        this.grade_rating = grade_rating;
+    public void setGradeRating(String gradeRating) {
+        this.gradeRating = gradeRating;
     }
 
     @Override
@@ -127,9 +127,9 @@ public class Member {
                 ", regdate='" + regdate + '\'' +
                 ", picture='" + picture + '\'' +
                 ", phonenumber='" + phonenumber + '\'' +
-                ", zip_code='" + zip_code + '\'' +
-                ", user_address='" + user_address + '\'' +
-                ", grade_rating='" + grade_rating + '\'' +
+                ", zip_code='" + zipCode + '\'' +
+                ", user_address='" + userAddress + '\'' +
+                ", grade_rating='" + gradeRating + '\'' +
                 '}';
     }
 }

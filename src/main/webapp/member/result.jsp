@@ -38,8 +38,8 @@
           <li class="result-list"><span class="result-list-color">이름</span> ${member.name}</li>
           <li class="result-list"><span class="result-list-color">이메일</span> ${member.email}</li>
           <li class="result-list"><span class="result-list-color">연락처</span> ${member.phonenumber}</li>
-          <li class="result-list"><span class="result-list-color">우편번호</span> ${member.zip_code}</li>
-          <li class="result-list"><span class="result-list-color">상세주소</span> ${member.user_address}</li>
+          <li class="result-list"><span class="result-list-color">우편번호</span> ${member.zipCode}</li>
+          <li class="result-list"><span class="result-list-color">상세주소</span> ${member.userAddress}</li>
           <li class="result-list"><span class="result-list-color">가입일자</span> ${member.regdate}</li>
         </ul>
       </fieldset>

@@ -13,7 +13,7 @@
                             <li ><a class="login-text" href="/member/login.jsp">로그인</a></li>
                     </c:when>
                     <c:otherwise>
-                            <li class="login-welcome"><a class="login-name" href="">${loginMember.getName()}</a>님 환영합니다.</li>
+                            <li class="login-welcome"><a class="login-name" href="/member/mypage.jsp?userId=${loginMember.getId()}">${loginMember.getName()}</a>님 환영합니다.</li>
                             <li><a class="logout" href="/member/logout-action.jsp">로그아웃</a></li>
                     </c:otherwise>
                 </c:choose>

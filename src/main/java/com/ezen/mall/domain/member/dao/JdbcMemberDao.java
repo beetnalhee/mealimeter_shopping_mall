@@ -8,7 +8,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.List;
 
 public class JdbcMemberDao implements MemberDao{
@@ -23,8 +22,8 @@ public class JdbcMemberDao implements MemberDao{
     }
     public void create(Member member) throws Exception{
         StringBuilder sql = new StringBuilder();
-        sql.append(" INSERT INTO users(user_id, passwd, user_name, email, phonenumber, zip_code, user_address, regdate, grade_rating)")
-           .append(" VALUES(?, ?, ?, ?, ?, ?, ? , TO_DATE('2024-03-10', 'YYYY-MM-DD'), 'GENERAL')");
+        sql.append(" INSERT INTO users(user_id, passwd, user_name, email, phonenumber, zip_code, user_address)")
+           .append(" VALUES(?, ?, ?, ?, ?, ?, ?)");
 
         conn = connectionFactory.getConnection();
         try {
@@ -34,8 +33,8 @@ public class JdbcMemberDao implements MemberDao{
             pstmt.setString(3, member.getName());
             pstmt.setString(4, member.getEmail());
             pstmt.setString(5, member.getPhonenumber());
-            pstmt.setString(6, member.getZip_code());
-            pstmt.setString(7, member.getUser_address());
+            pstmt.setString(6, member.getZipCode());
+            pstmt.setString(7, member.getUserAddress());
             pstmt.executeUpdate();
 
         } catch (SQLException e) {
@@ -53,7 +52,7 @@ public class JdbcMemberDao implements MemberDao{
     public Member findById(String id) throws SQLException {
         Member member = null;
         StringBuilder sql = new StringBuilder();
-        sql.append(" SELECT user_id, user_name, email, phonenumber, zip_code, user_address, TO_CHAR(regdate, 'yyyy-MM-DD HH24:MI:SS') regdate")
+        sql.append(" SELECT user_id, user_name, email, phonenumber, zip_code, user_address, TO_CHAR(regdate, 'yyyy-MM-DD HH24:MI:SS') regdate, grade_rating")
            .append(" FROM users")
            .append(" WHERE user_id = ?");
 
@@ -68,9 +67,10 @@ public class JdbcMemberDao implements MemberDao{
                 member.setName(rs.getString("user_name"));
                 member.setEmail(rs.getString("email"));
                 member.setPhonenumber(rs.getString("phonenumber"));
-                member.setZip_code(rs.getString("zip_code"));
-                member.setUser_address(rs.getString("user_address"));
+                member.setZipCode(rs.getString("zip_code"));
+                member.setUserAddress(rs.getString("user_address"));
                 member.setRegdate(rs.getString("regdate"));
+                member.setGradeRating(rs.getString("grade_rating"));
             }
         }
          finally {
@@ -130,10 +130,10 @@ public class JdbcMemberDao implements MemberDao{
                 member.setName(rs.getString("user_name"));
                 member.setEmail(rs.getString("email"));
                 member.setPhonenumber(rs.getString("phonenumber"));
-                member.setZip_code(rs.getString("zip_code"));
-                member.setUser_address(rs.getString("user_address"));
+                member.setZipCode(rs.getString("zip_code"));
+                member.setUserAddress(rs.getString("user_address"));
                 member.setRegdate(rs.getString("regdate"));
-                member.setGrade_rating(rs.getString("grade_rating"));
+                member.setGradeRating(rs.getString("grade_rating"));
                 list.add(member);
             }
         }
@@ -169,16 +169,6 @@ public class JdbcMemberDao implements MemberDao{
 //        Member member = new Member("Thu","1111","목요일","thu@gmail.com","010-111","11111","서울시 노원구");
 //        memberDao.create(member);
 //        System.out.println("회원가입 완료...");
-
-
-
-
-
-
-
-
-
-
 
 
     }
