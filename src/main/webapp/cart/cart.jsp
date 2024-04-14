@@ -164,7 +164,7 @@
             </div>
             <div class="cart-btn-wrap">
               <button type="button" class="cart-back">돌아가기</button>
-              <button type="button" class="cart-order">주문하기</button>
+              <button type="button" class="cart-order" onclick="location.href='/order/order.jsp'">주문하기</button>
             </div>
           </div>
         </div>

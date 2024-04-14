@@ -1,5 +1,27 @@
+<%@ page import="com.ezen.mall.domain.member.dto.Member" %>
+<%@ page import="com.ezen.mall.domain.cart.CartList" %>
+<%@ page import="java.util.List" %>
+<%@ page import="java.util.ArrayList" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html; charset=utf-8" pageEncoding="utf-8" %>
+<% Member loginMember = (Member) pageContext.findAttribute("loginMember"); %>
+
+<%
+  session.getAttribute("cartList");
+
+  List<CartList> cartList = (List<CartList>) session.getAttribute("cartList");
+  if (cartList == null) {
+    cartList = new ArrayList<>();
+    session.setAttribute("cartList", cartList);
+  }
+
+  int totalPrice = 0;
+  for (CartList cartItem : cartList) {
+    int price = Integer.parseInt(cartItem.getProduct().getPrice());
+    int quantity = cartItem.getQuantity();
+    totalPrice += price * quantity;
+  }
+%>
 
 <!DOCTYPE html>
 <html lang="ko">
@@ -37,16 +59,16 @@
           <div>
             <div>
               <label class="order-label" for="order-name">주문자명</label>
-              <input type="text" id="order-name" placeholder="이름">
+              <input type="text" id="order-name" placeholder="이름" value="${loginMember.getName()}">
             </div>
             <div>
               <label class="order-label" for="order-phonenumber">연락처</label>
-              <input type="text" id="order-phonenumber" placeholder="연락처">
+              <input type="text" id="order-phonenumber" placeholder="연락처" value="${loginMember.getPhonenumber()}">
             </div>
           </div>
           <div>
             <label class="order-label" for="order-adress">배송지</label>
-            <input type="text" id="order-adress" placeholder="주소">
+            <input type="text" id="order-adress" placeholder="주소" value="${loginMember.getUserAddress()}">
           </div>
         </div>
       <div class="order-payment">
@@ -66,23 +88,25 @@
       </div>
       <div class="order-orderlist-wrap">
         <h2 class="order-title">주문정보</h2>
+        <c:forEach var="cartItem" items="${cartList}">
         <div class="order-orderlist">
           <div>
-            <img src="/img/prod104.jpg">
+            <img src="${cartItem.product.getProdImg()}">
           </div>
           <div class="order-order-info">
             <ul>
-              <li>[냉동] 쫄깃탱글 불쭈꾸미볶음</li>
-              <li>10,500원 / 2개</li>
+              <li><strong>${cartItem.product.getProdName()}</strong></li>
+              <li>${cartItem.product.getPrice()}원 / ${cartItem.quantity}개</li>
             </ul>
           </div>
           <div class="order-prod-price">
-            21,000원
+              ${cartItem.product.getPrice() * cartItem.quantity}원
           </div>
         </div>
+        </c:forEach>
         <div class="order-total-price-wrap">
           <div>총 결제금액</div>
-          <div class="order-total-price">80,000원</div>
+          <div class="order-total-price"><%=totalPrice%>원</div>
         </div>
       </div>
       <a class="order-btn" href="" >결제하기</a>
