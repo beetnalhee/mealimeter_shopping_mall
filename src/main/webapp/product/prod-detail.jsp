@@ -3,11 +3,19 @@
 <%@ page import="com.ezen.mall.domain.product.service.ProductService" %>
 <%@ page import="com.ezen.mall.domain.product.service.ProductServiceImpl" %>
 <%@ page import="com.ezen.mall.domain.product.dto.Product" %>
+<%@ page import="java.text.NumberFormat" %>
+<%@ page import="java.util.Locale" %>
 
 <%
   ProductService productService = new ProductServiceImpl();
   Product product = productService.searchProduct(Integer.parseInt(request.getParameter("prodId")));
   request.setAttribute("product", product);
+%>
+
+<%
+  double price = Double.parseDouble(product.getPrice());
+  NumberFormat numberFormat = NumberFormat.getInstance(Locale.KOREA);
+  String eachPrice = numberFormat.format(price);
 %>
 
 <!DOCTYPE html>
@@ -31,11 +39,11 @@
       if(count < 1) {
         count = 1
         document.querySelector(".prod-total-quantity").innerText =  count; // 수량 업데이트
-        document.querySelector(".prod-total-price").innerText = (priceTag * count) + "원"; // 합계 계산 및 업데이트
+        document.querySelector(".prod-total-price").innerText = (priceTag * count).toLocaleString() + "원"; // 합계 계산 및 업데이트
 
       }else {
         document.querySelector(".prod-total-quantity").innerText = count ; // 수량 업데이트
-        document.querySelector(".prod-total-price").innerText = (priceTag * count) + "원"; // 합계 계산 및 업데이트
+        document.querySelector(".prod-total-price").innerText = (priceTag * count).toLocaleString() + "원"; // 합계 계산 및 업데이트
       }
     }
 
@@ -95,7 +103,7 @@
                 <li class="prod-info">${product.prodServings} ㅣ 조리시간 ${product.prodCookingTime}</li>
                 <li class="prod-price">
                   <div>상품가격</div>
-                  <div>${product.price}원</div>
+                  <div><%= eachPrice %>원</div>
                 </li>
                 <li class="prod-delivery">
                   <div>배송방법</div>
@@ -113,7 +121,7 @@
                       <span class="quantity">1</span>
                       <button type="button" title="수량 더하기" class="btn-up" onclick="plus()">+</button>
                     </div>
-                    <div class="test1">${product.price}</div>
+                    <div class="prod-each-price"><%= eachPrice %></div>
                   </div>
                 </li>
                 <li class="prod-detail-total">
