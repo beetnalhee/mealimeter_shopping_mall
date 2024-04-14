@@ -49,6 +49,12 @@
       </div>
     </c:when>
 
+    <c:when test="${pageContext.request.requestURI.equals('/member/result.jsp')}">
+      <div class="nav-banner">
+        <a href=""><div class="nav-banner"><img src="/img/join-banner.png" ></img></div></a>
+      </div>
+    </c:when>
+
     <c:when test="${pageContext.request.requestURI.equals('/cart/cart.jsp')}">
       <div class="nav-banner">
         <a href=""><div class="nav-banner"><img src="/img/cart-banner.png" ></img></div></a>
