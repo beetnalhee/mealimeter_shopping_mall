@@ -25,18 +25,17 @@
 
  String userId =(String)request.getSession().getAttribute("userId");
 
- String reviewPageUrl = "/review/review.jsp";
 
 %>
 
-<c:url var="review" value="<%= reviewPageUrl %>">
+<c:url var="review" value="/review/review-register.jsp">
   <c:param name="boardId" value="${param.boardId}" />
 </c:url>
 
 <c:if test="${empty loginMember}">
   <c:set var="message" value="리뷰작성은 로그인 후 가능합니다." scope="request" />
-  <c:set var="referer" value="<%= reviewPageUrl %>" scope="request" />
-<%--  <jsp:forward page="/member/login.jsp" />--%>
+  <c:set var="referer" value="/review/review-register.jsp" scope="request" />
+  <jsp:forward page="/member/login.jsp" />
 </c:if>
 
 <%--  String userId =(String)request.getSession().getAttribute("userId");--%>
@@ -86,9 +85,12 @@
           <input class="review-subject" type="text" name="subject" placeholder="제목">
         <div class="review-register-wrap">
           <textarea name="content" rows="5" cols="120" placeholder="리뷰를 작성하려면 로그인해주세요"></textarea>
-          <a href="${review}"><input type="submit" class="review-register-btn" onclick="checkLogin()" value="등록"></a>
-<%--          <a class="review-register-btn" href="" >등록</a>--%>
+          <input type="submit" class="review-register-btn" value="등록">
+
+<%--          <a href="${register}" class="review-register-btn">등록</a>--%>
+          <%--          <a class="review-register-btn" href="" >등록</a>--%>
         </div>
+        </form>
           <input type="file">
       </div>
       </fieldset>
