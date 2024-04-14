@@ -81,7 +81,7 @@
                     function updateTotal() {
                       let priceTag = parseInt("${cartItem.product.price}");
 
-                      document.querySelector(".price-sum").innerText = (priceTag * count) + "원"; // 합계 계산 및 업데이트
+                      document.querySelector(".price-sum").innerText = (priceTag * count) + "원";
                     }
 
 
@@ -120,7 +120,7 @@
                     </div>
                     <div class="cart-prod-price">
                       <ul>
-                        <li>16,900</li>
+                        <li>${cartItem.product.price}</li>
                         <li>원</li>
                       </ul>
                     </div>
