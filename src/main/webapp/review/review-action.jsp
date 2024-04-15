@@ -12,6 +12,7 @@
 <jsp:useBean id="review" class="com.ezen.mall.domain.review.dto.Review" scope="request" />
 <jsp:setProperty name="review" property="*" />
 
+
 <%
 //    int boardId = Integer.parseInt(request.getParameter("boardId"));
 //    String passwd = "9999";

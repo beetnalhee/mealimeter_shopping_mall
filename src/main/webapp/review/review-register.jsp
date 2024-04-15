@@ -32,12 +32,6 @@
   <c:param name="boardId" value="${param.boardId}" />
 </c:url>
 
-<c:if test="${empty loginMember}">
-  <c:set var="message" value="리뷰작성은 로그인 후 가능합니다." scope="request" />
-  <c:set var="referer" value="/review/review-register.jsp" scope="request" />
-  <jsp:forward page="/member/login.jsp" />
-</c:if>
-
 
 <%--  String userId =(String)request.getSession().getAttribute("userId");--%>
 <%--  if (userId == null) {--%>
@@ -55,6 +49,12 @@
     href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Gasoek+One&family=IBM+Plex+Sans+KR&family=Nanum+Gothic&display=swap"
     rel="stylesheet">
   <link rel="stylesheet" href="/css/index.css">
+    <script>
+        const prodNameBox = document.querySelector("#productId");
+        const selectProd = prodNameBox.options[prodNameBox.selectedIndex];
+        const prodName = selectProd.value;
+        document.querySelector("#reviewProdName").text = prodName;
+    </script>
 </head>
 
 <body>
@@ -77,11 +77,11 @@
         <form action="/review/review-action.jsp" method="post" >
 <%--        <div class="review-user-id" name="userId">작성자 : ${loginMember.id} </div>--%>
     <label class="review-label" for="userId">작성자:</label>
-    <input type="text" class="review-user-id" name="userId" readonly value="${loginMember.id}"></input>
+    <input type="text" class="review-user-id" name="userId"  id="userId" readonly value="${loginMember.id}"></input>
     <br>
     <div class="review-option">
     <label class="review-label" for="productId">리뷰할 상품 선택:</label>
-    <select class="review-register-title" name="productId">
+        <select class="review-register-title" name="subject" id="productId">
           <option class="">-- 리뷰할 상품을 선택해주세요. --</option>
           <c:forEach var="product" items="${products}">
             <option value="${product.prodId}">${product.prodName}</option>
@@ -89,8 +89,6 @@
         </select>
     </div>
     <br>
-    <label class="review-label" for="subject">제목:</label>
-          <input class="review-subject" type="text" name="subject" placeholder="제목">
         <div class="review-register-wrap">
           <textarea name="content" rows="5" cols="120" placeholder="리뷰 작성"></textarea>
           <input type="submit" class="review-register-btn" value="등록">
@@ -112,7 +110,7 @@
           <div class="review-wrap">
           <ul>
             <il><strong>${review.subject}</strong></il>
-            <li> ${review.regdate} ㅣ ${review.userId} ㅣ <%=prodName%> </li>
+              <li> ${review.regdate} ㅣ ${review.userId} ㅣ <span id="reviewProdName"></span> </li>
             <div class="review-content">
               <div class="review-img" style="background-image: url(/img/prod104.jpg); background-size: cover;"></div>
               <div class="review-text">
