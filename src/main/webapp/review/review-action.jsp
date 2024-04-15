@@ -25,6 +25,6 @@
 
     ReviewService reviewService = new ReviewServiceImpl();
     reviewService.writeReview(review);
-    response.sendRedirect("/review/review-list.jsp");
+    response.sendRedirect("/review/review-register.jsp");
 
 %>

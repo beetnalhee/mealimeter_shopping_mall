@@ -24,7 +24,7 @@
   request.setAttribute("list", list);
 
  String userId =(String)request.getSession().getAttribute("userId");
-
+ String prodName = (String)request.getSession().getAttribute("prodName");
 
 %>
 
@@ -37,6 +37,7 @@
   <c:set var="referer" value="/review/review-register.jsp" scope="request" />
   <jsp:forward page="/member/login.jsp" />
 </c:if>
+
 
 <%--  String userId =(String)request.getSession().getAttribute("userId");--%>
 <%--  if (userId == null) {--%>
@@ -75,16 +76,23 @@
       <div class="review-register">
         <form action="/review/review-action.jsp" method="post" >
 <%--        <div class="review-user-id" name="userId">작성자 : ${loginMember.id} </div>--%>
-        <input type="text" class="review-user-id" name="userId" readonly value="${loginMember.id}"></input>
-        <select class="review-register-title" name="productId">
-          <option>-- 리뷰할 상품을 선택해주세요. --</option>
+    <label class="review-label" for="userId">작성자:</label>
+    <input type="text" class="review-user-id" name="userId" readonly value="${loginMember.id}"></input>
+    <br>
+    <div class="review-option">
+    <label class="review-label" for="productId">리뷰할 상품 선택:</label>
+    <select class="review-register-title" name="productId">
+          <option class="">-- 리뷰할 상품을 선택해주세요. --</option>
           <c:forEach var="product" items="${products}">
-            <option value="${product.prodId}">${product.prodName}</option>
+            <option value="${product.prodId}">${product.podName}</option>
           </c:forEach>
         </select>
+    </div>
+    <br>
+    <label class="review-label" for="subject">제목:</label>
           <input class="review-subject" type="text" name="subject" placeholder="제목">
         <div class="review-register-wrap">
-          <textarea name="content" rows="5" cols="120" placeholder="리뷰를 작성하려면 로그인해주세요"></textarea>
+          <textarea name="content" rows="5" cols="120" placeholder="리뷰 작성"></textarea>
           <input type="submit" class="review-register-btn" value="등록">
 
 <%--          <a href="${register}" class="review-register-btn">등록</a>--%>
@@ -98,13 +106,13 @@
       <div class="review">
         <h2>리뷰 <%= list.size() %>건</h2>
         <div class="review-list">
-
-
         <c:forEach var="review" items="${list}">
+        
+        
           <div class="review-wrap">
           <ul>
             <il><strong>${review.subject}</strong></il>
-            <li> ${review.regdate} ㅣ ${review.userId}</li>
+            <li> ${review.regdate} ㅣ ${review.userId} ㅣ <%=prodName%> </li>
             <div class="review-content">
               <div class="review-img" style="background-image: url(/img/prod104.jpg); background-size: cover;"></div>
               <div class="review-text">
@@ -113,6 +121,7 @@
             </div>
           </ul>
           </div>
+            <hr class="divider">
         </c:forEach>
 
 
@@ -127,17 +136,17 @@
   <!-- footer 종료 -->
 </div>
 
-<script type="text/javascript">
-  function checkLogin() {
-    if("${empty loginMember}") {
-      alert("리뷰 작성을 위해서는 먼저 로그인이 필요합니다.");
+<%--<script type="text/javascript">--%>
+<%--  function checkLogin() {--%>
+<%--    if("${empty loginMember}") {--%>
+<%--      alert("리뷰 작성을 위해서는 먼저 로그인이 필요합니다.");--%>
 
-      return false; // 로그인 페이지로 이동하지 않음
-    } else {
-      return true; // 리뷰 등록 페이지로 이동
-    }
-  }
-</script>
+<%--      return false; // 로그인 페이지로 이동하지 않음--%>
+<%--    } else {--%>
+<%--      return true; // 리뷰 등록 페이지로 이동--%>
+<%--    }--%>
+<%--  }--%>
+<%--</script>--%>
 
 
 </body>

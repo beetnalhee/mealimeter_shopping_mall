@@ -83,6 +83,46 @@ public class JdbcReviewDao implements ReviewDao {
         return list;
     }
 
+//    @Override
+//    public List<Review> findreviewByAll() throws SQLException {
+//        List<Review> list = new ArrayList<>();
+//        StringBuilder sql = new StringBuilder();
+//        sql.append(" r.review_id, r.subject, r.content, r.regdate, r.attach_file, r.order_no, r.order_id, r.user_id, r.board_id, r.product_id, p.product_name")
+//                .append(" FROM review r JOIN products p")
+//                .append(" ON (r.product_id = p.product_id)")
+//                .append(" ORDER BY review_id desc");
+//
+//        conn = connectionFactory.getConnection();
+//        try {
+//            pstmt = conn.prepareStatement(sql.toString());
+//            rs = pstmt.executeQuery();
+//            while (rs.next()) {
+//                Review review = new Review();
+//                review.setReviewId(rs.getInt("review_id"));
+//                review.setSubject(rs.getString("subject"));
+//                review.setContent(rs.getString("content"));
+//                review.setRegdate(rs.getString("regdate"));
+//                review.setAttachFile(rs.getString("attach_file"));
+//                review.setOrderNo(rs.getInt("order_no"));
+//                review.setOrderId(rs.getInt("order_id"));
+//                review.setUserId(rs.getString("user_id"));
+//                review.setBoardId(rs.getInt("board_id"));
+//                review.setProductId(rs.getInt("product_id"));
+//                list.add(review);
+//            }
+//        } finally {
+//            try {
+//                if (pstmt != null) pstmt.close();
+//                if (rs != null) rs.close();
+//                if (conn != null) conn.close();
+//            } catch (SQLException e) {
+//                throw new RuntimeException(e);
+//            }
+//
+//        }
+//        return list;
+//    }
+
     public static void main(String[] args) throws SQLException {
         ReviewDao reviewDao = new JdbcReviewDao();
 
