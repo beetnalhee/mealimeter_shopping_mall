@@ -1167,7 +1167,7 @@ td a{
     width: 1000px;
     margin: 20px 0;
     border-top: 2px solid black;
-    border-bottom: 1px solid #bebebe;
+    /*border-bottom: 1px solid #bebebe;*/
     padding: 20px 0px;
 }
 
@@ -1179,8 +1179,15 @@ td a{
     margin: 5px 0;
 }
 
-.review-register-title .review-subject{
+.review-register-title{
+    /*display: block;*/
     height: 30px;
+    margin-top: 10px;
+}
+
+.review-subject{
+    height: 28px;
+    width: 327px;
     margin-top: 10px;
 }
 
@@ -1218,8 +1225,15 @@ td a{
 }
 
 .review-user-id{
+    border: none;
+    height: 30px;
     padding: 5px 0px;
-    background-color: rgba(229, 225, 225, 0.47);
+    /*background-color: rgba(229, 225, 225, 0.47);*/
+    /*border : 1px #838383 solid ;*/
+}
+
+.review-option{
+    display: inline;
 }
 
 /*.review-subject{*/

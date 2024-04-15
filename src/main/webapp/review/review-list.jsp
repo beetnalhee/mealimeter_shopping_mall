@@ -102,6 +102,7 @@
             </div>
           </ul>
           </div>
+          <hr class="divider">
         </c:forEach>
 
 

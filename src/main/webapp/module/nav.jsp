@@ -18,7 +18,7 @@
           <a style="color: red" href="/product/hotdeal-product.jsp">핫딜</a>
         </li>
         <li class="nav-list-text">
-          <a href="/review/review-list.jsp">리뷰</a>
+          <a href="/review/review-register.jsp">리뷰</a>
         </li>
         <li class="nav-list-text">
           <a href="/board/list.jsp?boardId=100">밀리소식</a>
@@ -44,6 +44,12 @@
     </c:when>
 
     <c:when test="${pageContext.request.requestURI.equals('/member/register.jsp')}">
+      <div class="nav-banner">
+        <a href=""><div class="nav-banner"><img src="/img/join-banner.png" ></img></div></a>
+      </div>
+    </c:when>
+
+    <c:when test="${pageContext.request.requestURI.equals('/member/result.jsp')}">
       <div class="nav-banner">
         <a href=""><div class="nav-banner"><img src="/img/join-banner.png" ></img></div></a>
       </div>

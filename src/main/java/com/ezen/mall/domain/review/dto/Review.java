@@ -12,6 +12,7 @@ public class Review {
     int boardId;
     int productId;
 
+
     public Review() {}
 
     public Review(int reviewId, String subject, String content, String regdate, String attachFile, int orderNo, int orderId, String userId, int boardId, int productId) {
