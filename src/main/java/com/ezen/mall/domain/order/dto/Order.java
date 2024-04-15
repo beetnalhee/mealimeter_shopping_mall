@@ -20,6 +20,10 @@ public class Order {
 
     public Order(){}
 
+    public Order(int orderId, String userId, int orderDetailId, String orderDate, String name, int zipCode, String adress, String phoneNumber, String payment, int deliveryCharge, int totalPrice){
+        this(orderId, userId, orderDetailId, orderDate, name, zipCode, adress, phoneNumber, payment, deliveryCharge,totalPrice, null, null, null, null);
+    }
+
     public Order(int orderId, String userId, int orderDetailId, String orderDate, String name, int zipCode, String adress, String phoneNumber, String payment, int deliveryCharge, int totalPrice, String prodName,
     String prodImg, String orderVolume, String prodPrice) {
         this.orderId = orderId;

@@ -59,16 +59,16 @@
           <div>
             <div>
               <label class="order-label" for="order-name">주문자명</label>
-              <input type="text" id="order-name" placeholder="이름" value="${loginMember.getName()}">
+              <input type="text" id="order-name" name="name" placeholder="이름" value="${loginMember.getName()}">
             </div>
             <div>
               <label class="order-label" for="order-phonenumber">연락처</label>
-              <input type="text" id="order-phonenumber" placeholder="연락처" value="${loginMember.getPhonenumber()}">
+              <input type="text" name="phoneNumber" id="order-phonenumber" placeholder="연락처" value="${loginMember.getPhonenumber()}">
             </div>
           </div>
           <div>
             <label class="order-label" for="order-adress">배송지</label>
-            <input type="text" id="order-adress" placeholder="주소" value="${loginMember.getUserAddress()}">
+            <input type="text" name="address" id="order-adress" placeholder="주소" value="${loginMember.getUserAddress()}">
           </div>
         </div>
       <div class="order-payment">
@@ -102,10 +102,10 @@
         </c:forEach>
         <div class="order-total-price-wrap">
           <div>총 결제금액</div>
-          <div class="order-total-price"></div>
+          <div class="order-total-price" name="totalPrice"></div>
         </div>
       </div>
-      <a class="order-btn" href="" >결제하기</a>
+      <a class="order-btn" href="/order/order-action.jsp" >결제하기</a>
     </div>
   <!-- 메인 종료 -->
 

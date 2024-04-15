@@ -9,4 +9,5 @@ import java.util.List;
 public interface OrderDao {
     public List<Order> findByAll() throws SQLException;
     public List<Order> findByUserId(String userId);
+    public void createOrder(Order order) throws SQLException;
 }

@@ -137,7 +137,7 @@
             <il><strong>${review.subject}</strong></il>
               <li> ${review.regdate} ㅣ ${review.userId} </li>
             <div class="review-content">
-              <div class="review-img" style="background-image: url(/img/prod108.jpg); background-size: cover;"></div>
+              <div class="review-img" style="background-image: url(${review.attachFile}); background-size: cover;"></div>
               <div class="review-text">
                 ${review.content}
               </div>

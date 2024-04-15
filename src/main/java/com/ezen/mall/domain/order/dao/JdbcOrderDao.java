@@ -8,6 +8,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 public class JdbcOrderDao implements OrderDao{
@@ -18,6 +19,35 @@ public class JdbcOrderDao implements OrderDao{
 
     public JdbcOrderDao() {
         connectionFactory = ConnectionFactory.getInstance();
+    }
+
+    @Override
+    public void createOrder(Order order) throws SQLException {
+        StringBuilder sql = new StringBuilder();
+        sql.append(" INSERT INTO orders (order_id, orderdetail_id, user_id, order_date, destination_name, destination_zip_code, destination_address, destination_phonenumber, payment, delivery_charge, total_amount)")
+                .append(" VALUES(orders_seq.nextval, 121, ? ,SYSDATE, ?, ?, ?, ?, ?, 0, ? )");
+
+        conn = connectionFactory.getConnection();
+        pstmt = null;
+
+        try {
+            pstmt = conn.prepareStatement(sql.toString());
+            pstmt.setString(1, order.getUserId());
+            pstmt.setString(2, order.getName());
+            pstmt.setInt(3, order.getZipCode());
+            pstmt.setString(4, order.getAdress());
+            pstmt.setString(5, order.getPhoneNumber());
+            pstmt.setString(6, order.getPayment());
+            pstmt.setInt(7, order.getTotalPrice());
+            pstmt.executeUpdate();
+        } finally {
+            try {
+                if (pstmt != null) pstmt.close();
+                if (conn != null) conn.close();
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+        }
     }
 
     @Override
@@ -105,9 +135,8 @@ public class JdbcOrderDao implements OrderDao{
 
     public static void main(String[] args) throws SQLException {
         OrderDao orderDao = new JdbcOrderDao();
-        List<Order> list = orderDao.findByUserId("chan999");
-        for (Order order : list) {
-            System.out.println(order);
-        }
+        Order order = new Order(900, "chan999", 109, "15-04-2024", "김찬규", 16495, "서울시 노원구", "010-1234-4567", "CARD", 0, 45000);
+        orderDao.createOrder(order);
+        System.out.println("주문완료");
     }
 }

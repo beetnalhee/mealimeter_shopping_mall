@@ -13,11 +13,6 @@
     Member loginMember = (Member)session.getAttribute("loginMember");
 %>
 
-<c:if test="${empty loginMember}">
-    <c:set var="message" value="게시판 글쓰기는 로그인 후 가능합니다." scope="request" />
-    <c:set var="referer" value="/board/register.jsp" scope="request" />
-    <jsp:forward page="/member/login.jsp" />
-</c:if>
 
 <jsp:useBean id="review" class="com.ezen.mall.domain.review.dto.Review" scope="request" />
 <jsp:setProperty name="review" property="*" />

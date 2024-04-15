@@ -77,6 +77,7 @@
                         <input type="checkbox" id="order-no${status.index}" checked />
                         <span class="on"></span>
                       </label>
+
                     </div>
                     <div class="cart-img-wrap">
                       <img src="${cartItem.product.prodImg}">
@@ -161,22 +162,22 @@
 
   function plus(index, price) {
     let countElement = document.querySelector(".cart-quantity" + index);
-    let count = parseInt(countElement.innerText);
+    let count = parseInt(countElement.textContent);
     count++;
-    countElement.innerText = count;
+    countElement.textContent = count;
     let priceElement = document.querySelector(".price-sum" + index);
-    priceElement.innerText = count * price;
+    priceElement.textContent = comma(count * price);
     updateTotal();
   }
 
   function minus(index, price) {
     let countElement = document.querySelector(".cart-quantity" + index);
-    let count = parseInt(countElement.innerText);
+    let count = parseInt(countElement.textContent);
     if (count > 1) {
       count--;
-      countElement.innerText = count;
+      countElement.textContent = count;
       let priceElement = document.querySelector(".price-sum" + index);
-      priceElement.innerText = count * price;
+      priceElement.textContent = comma(count * price);
       updateTotal();
     }
   }
@@ -187,6 +188,11 @@
     location.href='cart-remove.jsp?index='+index;
     updateTotal();
   }
+
+  function comma(x) {
+    return new Intl.NumberFormat('ko-KR').format(x);
+  }
+
 
   window.onload = updateTotal;
 </script>

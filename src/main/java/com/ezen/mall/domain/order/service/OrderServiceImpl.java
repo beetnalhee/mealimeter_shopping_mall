@@ -12,6 +12,16 @@ public class OrderServiceImpl implements OrderService{
     OrderDao orderDao = new JdbcOrderDao();
 
     @Override
+    public void writeOrder(Order order) {
+        try {
+            orderDao.createOrder(order);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+
+    @Override
     public List<Order> orderList() {
         try {
             return orderDao.findByAll();
