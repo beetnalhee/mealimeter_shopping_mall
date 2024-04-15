@@ -106,7 +106,7 @@
         </c:forEach>
         <div class="order-total-price-wrap">
           <div>총 결제금액</div>
-          <div class="order-total-price"><%=totalPrice%>원</div>
+          <div class="order-total-price"><%=String.format("%,d",totalPrice)%>원</div>
         </div>
       </div>
       <a class="order-btn" href="" >결제하기</a>

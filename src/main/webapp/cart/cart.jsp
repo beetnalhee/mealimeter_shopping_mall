@@ -24,6 +24,7 @@
 %>
 
 
+
 <!DOCTYPE html>
 <html lang="ko">
 
@@ -62,7 +63,7 @@
               <div class="check-box" id="select-all">
                 <input class="cart-check-all" type="checkbox">
                 <label for="select-all">
-                  전체선택 (<span>2</span>/2)
+                  전체선택 (<span>2</span>/${cartList.size()})
                 </label>
               </div>
               <div class="cart-select-btn">
@@ -81,7 +82,7 @@
                     function updateTotal() {
                       let priceTag = parseInt("${cartItem.product.price}");
 
-                      document.querySelector(".price-sum").innerText = (priceTag * count) + "원";
+                      document.querySelector(".price-sum").innerText = (priceTag * count).toLocaleString() + "원";
                     }
 
 
@@ -144,7 +145,7 @@
               <ul>
                 <li>
                   <div>총 상품금액</div>
-                  <div class="total-prod-price"><%=totalPrice%>원</div>
+                  <div class="total-prod-price"><%=String.format("%,d",totalPrice)%>원</div>
                 </li>
                 <li>
                   <div class="plus"> + </div>
@@ -158,7 +159,7 @@
                 </li>
                 <li>
                   <div>총 결제금액</div>
-                  <div class="total-price"><%=totalPrice%>원</div>
+                  <div class="total-price"><%=String.format("%,d",totalPrice)%>원</div>
                 </li>
               </ul>
             </div>

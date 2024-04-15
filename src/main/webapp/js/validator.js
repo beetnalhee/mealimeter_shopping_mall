@@ -31,6 +31,9 @@ Validator.isUsername = function(input) {
 }
 
 
+
+
+
 // //참고
 // const Validator = {};
 // Validator.isEmail = function(input){
