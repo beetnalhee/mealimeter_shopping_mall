@@ -8,7 +8,7 @@ public class Member {
     private String regdate;
     private String picture;
     private String phonenumber;
-    private String zipCode;
+    private int zipCode;
     private String userAddress;
     private String gradeRating;
 
@@ -18,13 +18,13 @@ public class Member {
 //        this(id, passwd, name, email, null, null);
 //    }
 
-    public Member(String id, String passwd, String name, String email, String phonenumber, String zipCode, String userAddress) {
+    public Member(String id, String passwd, String name, String email, String phonenumber, int zipCode, String userAddress) {
         this(id, passwd, name, email,null,null, phonenumber, zipCode, userAddress,null);
 
     }
 
 
-    public Member(String id, String passwd, String name, String email, String regdate, String picture, String phonenumber, String zipCode, String userAddress, String gradeRating) {
+    public Member(String id, String passwd, String name, String email, String regdate, String picture, String phonenumber, int zipCode, String userAddress, String gradeRating) {
         this.id = id;
         this.passwd = passwd;
         this.name = name;
@@ -93,11 +93,11 @@ public class Member {
         this.phonenumber = phonenumber;
     }
 
-    public String getZipCode() {
+    public int getZipCode() {
         return zipCode;
     }
 
-    public void setZipCode(String zipCode) {
+    public void setZipCode(int zipCode) {
         this.zipCode = zipCode;
     }
 

@@ -33,7 +33,7 @@ public class JdbcMemberDao implements MemberDao{
             pstmt.setString(3, member.getName());
             pstmt.setString(4, member.getEmail());
             pstmt.setString(5, member.getPhonenumber());
-            pstmt.setString(6, member.getZipCode());
+            pstmt.setInt(6, member.getZipCode());
             pstmt.setString(7, member.getUserAddress());
             pstmt.executeUpdate();
 
@@ -67,7 +67,7 @@ public class JdbcMemberDao implements MemberDao{
                 member.setName(rs.getString("user_name"));
                 member.setEmail(rs.getString("email"));
                 member.setPhonenumber(rs.getString("phonenumber"));
-                member.setZipCode(rs.getString("zip_code"));
+                member.setZipCode(rs.getInt("zip_code"));
                 member.setUserAddress(rs.getString("user_address"));
                 member.setRegdate(rs.getString("regdate"));
                 member.setGradeRating(rs.getString("grade_rating"));
@@ -130,7 +130,7 @@ public class JdbcMemberDao implements MemberDao{
                 member.setName(rs.getString("user_name"));
                 member.setEmail(rs.getString("email"));
                 member.setPhonenumber(rs.getString("phonenumber"));
-                member.setZipCode(rs.getString("zip_code"));
+                member.setZipCode(rs.getInt("zip_code"));
                 member.setUserAddress(rs.getString("user_address"));
                 member.setRegdate(rs.getString("regdate"));
                 member.setGradeRating(rs.getString("grade_rating"));

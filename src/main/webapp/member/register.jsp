@@ -28,6 +28,75 @@
     rel="stylesheet">
   <link rel="stylesheet" href="/css/index.css">
   <c:url var="register_action" value="/member/register-action.jsp" />
+
+  <script>
+    // 회원가입 폼 유효성 검사
+    document.getElementById('register-form').addEventListener('submit', function(event) {
+      // 아이디 유효성 검사
+      const id = document.getElementById('register-id').value.trim();
+      if (Validator.isEmpty(id) || !Validator.isUsername(id)) {
+        alert('아이디는 최소 4자 이상, 16자 이하의 영문자 또는 숫자로 입력해주세요.');
+        event.preventDefault();
+        return;
+      }
+
+      // 비밀번호 유효성 검사
+      const password = document.getElementById('register-pw').value.trim();
+      const passwordConfirm = document.getElementById('register-pw-confirm').value.trim();
+      if (Validator.isEmpty(password)) {
+        alert('비밀번호를 입력해주세요.');
+        event.preventDefault();
+        return;
+      }
+      if (password !== passwordConfirm) {
+        alert('비밀번호와 비밀번호 확인이 일치하지 않습니다.');
+        event.preventDefault();
+        return;
+      }
+
+      // 이름 유효성 검사
+      const name = document.getElementById("register-name").value.trim();
+      if (Validator.isEmpty(name) || !Validator.isName(name)) {
+        alert('이름을 올바르게 입력해주세요.');
+        event.preventDefault();
+        return;
+      }
+
+      // 이메일 유효성 검사
+      const email = document.getElementById("register-email").value.trim();
+      if (Validator.isEmpty(email) || !Validator.isEmail(email)) {
+        alert('올바른 이메일 주소를 입력해주세요.');
+        event.preventDefault();
+        return;
+      }
+
+      // 연락처 유효성 검사
+      const phoneNumber = document.getElementById("register-phonenumber").value.trim();
+      if (Validator.isEmpty(phoneNumber) || !Validator.isNumber(phoneNumber)) {
+        alert('올바른 연락처를 입력해주세요.');
+        event.preventDefault();
+        return;
+      }
+
+      // 우편번호 유효성 검사
+      const zipCode = document.getElementById("register-zipcode").value.trim();
+      if (Validator.isEmpty(zipCode) || !Validator.isNumber(zipCode)) {
+        alert('우편번호를 입력해주세요.');
+        event.preventDefault();
+        return;
+      }
+
+      // 상세주소 유효성 검사
+      const address = document.getElementById("register-address").value.trim();
+      if (Validator.isEmpty(address)) {
+        alert('상세주소를 입력해주세요.');
+        event.preventDefault();
+        return;
+      }
+    });
+
+
+  </script>
 </head>
 
 <body>
@@ -55,11 +124,11 @@
             </li>
             <li class="register-info">
               <label for="register-pw">비밀번호</label>
-              <input class="register-input" name="passwd" type="password" id="register-pw" placeholder="비밀번호를 입력해주세요." required o>
+              <input class="register-input" name="passwd" type="password" id="register-pw" placeholder="비밀번호를 입력해주세요." required >
             </li>
             <li class="register-info">
               <label for="register-pw-confirm">비밀번호 확인</label>
-              <input class="register-input" type="password" id="register-pw-confirm" placeholder="비밀번호를 한번 더 입력해주세요." >
+              <input class="register-input" type="password" id="register-pw-confirm" placeholder="비밀번호를 한번 더 입력해주세요." required>
             </li>
             <li class="register-info">
               <label for="register-name">이름</label>
@@ -67,22 +136,22 @@
             </li>
             <li class="register-info">
               <label for="register-email">이메일</label>
-              <input class="register-input" name="email" type="email" id="register-email" placeholder="이메일">
+              <input class="register-input" name="email" type="email" id="register-email" placeholder="이메일" required>
             </li>
 
             <li class="register-info">
               <label for="register-phonenumber">연락처</label>
-              <input class="register-input" name="phonenumber" type="tel" id="register-phonenumber" placeholder="연락처">
+              <input class="register-input" name="phonenumber" type="tel" id="register-phonenumber" placeholder="연락처" required>
             </li>
 
             <li class="register-info">
               <label for="register-zipcode">우편번호</label>
-              <input class="register-input" name="zip_code" type="number" id="register-zipcode" placeholder="우편번호">
+              <input class="register-input" name="zipCode" type="number" id="register-zipcode" placeholder="우편번호" >
             </li>
 
             <li class="register-info">
               <label for="register-address">상세주소</label>
-              <input class="register-input" name="user_address" type="text" id="register-address" placeholder="상세주소">
+              <input class="register-input" name="userAddress" type="text" id="register-address" placeholder="상세주소" >
             </li>
 
             <li class="register-info">
