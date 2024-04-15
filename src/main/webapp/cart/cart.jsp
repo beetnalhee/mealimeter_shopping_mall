@@ -7,21 +7,13 @@
 
 <%
   session.getAttribute("cartList");
-
-  List<CartList> cartList = (List<CartList>) session.getAttribute("cartList");
-  if (cartList == null) {
-    cartList = new ArrayList<>();
-    session.setAttribute("cartList", cartList);
-  }
-
-  // 모든 상품 가격 합산
-  int totalPrice = 0;
-  for (CartList cartItem : cartList) {
-    int price = Integer.parseInt(cartItem.getProduct().getPrice());
-    int quantity = cartItem.getQuantity();
-    totalPrice += price * quantity;
-  }
 %>
+
+<c:set var="totalProdPrice" value="0" />
+<c:forEach var="cartItem" items="${cartList}">
+  <c:set var="subtotal" value="${cartItem.quantity * cartItem.product.price}" />
+  <c:set var="totalProdPrice" value="${totalProdPrice + subtotal}" />
+</c:forEach>
 
 
 <!DOCTYPE html>
@@ -59,92 +51,70 @@
           <h1 class="title-text">장바구니</h1>
           <div class="cart-wrap">
             <div class="cart-controller">
-              <div class="check-box" id="select-all">
-                <input class="cart-check-all" type="checkbox">
-                <label for="select-all">
-                  전체선택 (<span>2</span>/2)
+              <div class="check-box">
+                <label for="select-all" class="chk_box">
+                <input class="cart-check-all" id="select-all" checked type="checkbox" />
+                  <span class="on"></span>
+                  전체선택 (<span>0</span>/${cartList.size()})
                 </label>
               </div>
               <div class="cart-select-btn">
-                <a href="#" class="btn-del-all">전체삭제</a>
+                <a href="/cart/cart-remove.jsp" class="btn-del-all">전체삭제</a>
                 <a href="#" class="btn-del-wish">선택삭제</a>
               </div>
             </div>
             <div class="cart-list">
               <ul>
-
-                <c:forEach var="cartItem" items="${cartList}" varStatus="i">
-
-                  <script>
-                    let count= parseInt(${cartItem.quantity});
-
-                    function updateTotal() {
-                      let priceTag = parseInt("${cartItem.product.price}");
-
-                      document.querySelector(".price-sum").innerText = (priceTag * count) + "원";
-                    }
-
-
-                    function plus(){
-                      count=count+1;
-                      document.querySelector(".cart-quantity").innerText=count;
-                      updateTotal();
-                    }
-
-                    function minus(){
-                      if(count > 1){
-                        count=count-1;
-                        document.querySelector(".cart-quantity").innerText=count;
-                        updateTotal();
-                      } else {
-                        count = 1;
-                        document.querySelector(".cart-quantity").innerText=count;
-                        updateTotal();
-                      }
-                    }
-
-                    window.onload = updateTotal;
-                  </script>
-
-                <li class="cart-list-prod">
-                  <div class="check-box">
-                    <input type="checkbox" id="order-no1">
-                    <label for="order-no1"></label>
-                  </div>
-                  <div class="cart-img-wrap">
-                    <img src="${cartItem.product.prodImg}">
-                  </div>
-                  <div class="cart-prod-wrap">
-                    <div class="cart-prod-name">
-                      <a href="" >${cartItem.product.prodName}</a>
+                <c:choose>
+                  <c:when test="${empty cartList}">
+                    <p style="padding: 30px 0 ">장바구니가 비었습니다.</p>
+                  </c:when>
+                <c:otherwise>
+                <c:forEach var="cartItem" items="${cartList}" varStatus="status">
+                  <li class="cart-list-prod">
+                    <div class="check-box">
+                      <label for="order-no${status.index}" class="chk_box">
+                        <input type="checkbox" id="order-no${status.index}" checked />
+                        <span class="on"></span>
+                      </label>
                     </div>
-                    <div class="cart-prod-price">
-                      <ul>
-                        <li>${cartItem.product.price}</li>
-                        <li>원</li>
-                      </ul>
+                    <div class="cart-img-wrap">
+                      <img src="${cartItem.product.prodImg}">
                     </div>
-                  </div>
-                  <div class="cart-prod-count">
-                    <div class="prod-btn-quantity">
-                      <button type="button" title="수량 빼기" class="btn-down" onclick="minus()">-</button>
-                      <span class="cart-quantity">${cartItem.quantity}</span>
-                      <button type="button" title="수량 더하기" class="btn-up" onclick="plus()">+</button>
+                    <div class="cart-prod-wrap">
+                      <div class="cart-prod-name">
+                        <a href="" >${cartItem.product.prodName}</a>
+                      </div>
+                      <div class="cart-prod-price">
+                        <ul>
+                          <li>${cartItem.product.price}</li>
+                          <li>원</li>
+                        </ul>
+                      </div>
                     </div>
-                  </div>
-                  <div class="price-sum">${cartItem.product.price}원</div>
-                  <div class="prod-del">
-                    <button type="button">X</button>
-                  </div>
-                </li>
+                    <div class="cart-prod-count">
+                      <div class="prod-btn-quantity">
+                        <button type="button" title="수량 빼기" class="btn-down" onclick="minus(${status.index}, ${cartItem.product.price})">-</button>
+                        <span class="cart-quantity${status.index}" id="quantity">${cartItem.quantity}</span>
+                        <button type="button" title="수량 더하기" class="btn-up" onclick="plus(${status.index}, ${cartItem.product.price})">+</button>
+                      </div>
+                    </div>
+                    <div id="price-sum"><span class="price-sum${status.index}">${cartItem.quantity * cartItem.product.price}</span>원</div>
+                    <div class="prod-del">
+                      <button type="button" onclick="removeProduct(${status.index})">X</button>
+                    </div>
+                  </li>
                 </c:forEach>
+                </c:otherwise>
+                </c:choose>
+
               </ul>
             </div>
             <div class="total-payment">
               <ul>
                 <li>
                   <div>총 상품금액</div>
-                  <div class="total-prod-price"><%=totalPrice%>원</div>
+                  <div class="total-prod-price">${totalProdPrice}원</div>
                 </li>
                 <li>
                   <div class="plus"> + </div>
@@ -158,7 +128,7 @@
                 </li>
                 <li>
                   <div>총 결제금액</div>
-                  <div class="total-price"><%=totalPrice%>원</div>
+                  <div class="total-price">${totalProdPrice}원</div>
                 </li>
               </ul>
             </div>
@@ -177,5 +147,48 @@
   <!-- footer 종료 -->
 </div>
 </body>
+
+<script>
+  function updateTotal() {
+    let totalProdPrice = 0;
+    let priceElements = document.querySelectorAll("[class^='price-sum']");
+    priceElements.forEach(priceElement => {
+      totalProdPrice += parseInt(priceElement.innerText);
+    });
+    document.querySelector(".total-prod-price").innerText = totalProdPrice.toLocaleString() + "원"; // 총 상품 금액을 표시할 때 세 자리마다 쉼표를 추가합니다.
+    document.querySelector(".total-price").innerText = totalProdPrice.toLocaleString() + "원";
+  }
+
+  function plus(index, price) {
+    let countElement = document.querySelector(".cart-quantity" + index);
+    let count = parseInt(countElement.innerText);
+    count++;
+    countElement.innerText = count;
+    let priceElement = document.querySelector(".price-sum" + index);
+    priceElement.innerText = count * price;
+    updateTotal();
+  }
+
+  function minus(index, price) {
+    let countElement = document.querySelector(".cart-quantity" + index);
+    let count = parseInt(countElement.innerText);
+    if (count > 1) {
+      count--;
+      countElement.innerText = count;
+      let priceElement = document.querySelector(".price-sum" + index);
+      priceElement.innerText = count * price;
+      updateTotal();
+    }
+  }
+
+  function removeProduct(index) {
+    let productElement = document.querySelector(".cart-list-prod:nth-child(" + (index + 1) + ")");
+    productElement.parentNode.removeChild(productElement);
+    location.href='cart-remove.jsp?index='+index;
+    updateTotal();
+  }
+
+  window.onload = updateTotal;
+</script>
 
 </html>

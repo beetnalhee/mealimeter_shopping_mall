@@ -62,6 +62,22 @@ fieldset{
     font-weight: 700;
     font-style: normal;
 }
+
+/*------------------------체크박스-------------------------------*/
+.chk_box { display: block; position: relative;  padding-left: 25px; margin-bottom: 10px; cursor: pointer; font-size: 17px; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; }
+
+/* 기본 체크박스 숨기기 */
+.chk_box input[type="checkbox"] { display: none; }
+
+/* 선택되지 않은 체크박스 스타일 꾸미기 */
+.on { width: 20px; height: 20px; background: #ddd; position: absolute; top: 0; left: 0; border-radius: 50%; }
+
+/* 선택된 체크박스 스타일 꾸미기 */
+.chk_box input[type="checkbox"]:checked + .on { background: #bcd41a; }
+.on:after { content: ""; position: absolute; display: none; }
+.chk_box input[type="checkbox"]:checked + .on:after { display: block; }
+.on:after { width: 6px; height: 10px; border: solid #fff; border-width: 0 2px 2px 0; -webkit-transform: rotate(45deg); -ms-transform: rotate(45deg); transform: rotate(45deg); position: absolute; left: 6px; top: 2px; }
+
 /*-------------------------INDEX---------------------------------*/
 
 #wrapper{
@@ -148,7 +164,7 @@ header li{
 }
 
 .login-name, .logout{
-    color: #97c3fc;;
+    color: rgb(188, 212, 26);;
     font-size: 14px;
     font-weight: bolder;
 }
@@ -306,7 +322,7 @@ header li{
 #login-btn{
     height: 40px;
     margin: 20px 0px;
-    background-color: rgba(138, 179, 255, 0.49);
+    background-color: rgba(188, 212, 26, 0.63);
     border: 1px;
     border-radius: 8px;
 }
@@ -314,7 +330,7 @@ header li{
 #login-btn:hover{
     color: white;
     font-weight: bolder;
-    background-color: rgba(39, 106, 255, 0.64);
+    background-color: rgb(188, 212, 26);
 }
 
 /*-------------------------마이페이지-------------------------*/
@@ -332,7 +348,7 @@ header li{
     width: 180px;
     height: 250px;
     padding: 10px;
-    background-color: #389826;
+    background-color: rgb(147, 164, 12);
     align-items: center;
     color: honeydew;
 }
@@ -487,7 +503,7 @@ header li{
 
 .order-total-price{
     font-size: 30px;
-    color: #ff4a6e;
+    color: rgb(188, 212, 26);
 }
 
 .order-payment{
@@ -510,7 +526,7 @@ header li{
     height: 50px;
     align-content: center;
     margin: 20px auto;
-    background-color: rgba(93, 157, 84, 0.61);
+    background-color: rgb(188, 212, 26);
 }
 
 /*----------------------------회원가입-------------------------*/
@@ -562,7 +578,7 @@ header li{
     width: 400px;
     height: 40px;
     margin: 20px 0px;
-    background-color: rgba(138, 179, 255, 0.49);
+    background-color: rgba(188, 212, 26, 0.58);
     border: 1px;
     border-radius: 8px;
     font-size: 17px;
@@ -571,7 +587,7 @@ header li{
 #register-btn:hover{
     color: white;
     font-weight: bolder;
-    background-color: rgba(39, 106, 255, 0.64);
+    background-color: rgb(188, 212, 26);
 }
 
 #result-wrap{
@@ -601,11 +617,11 @@ header li{
 }
 
 #result-member-id{
-    color: #3694ff;
+    color: rgb(188, 212, 26);
 }
 
 .result-list-color{
-    color: #3694ff;
+    color: rgb(188, 212, 26);
     text-align: start;
     font-weight: bolder;
     width: 100px;
@@ -615,7 +631,7 @@ header li{
     width: 300px;
     height: 40px;
     margin: 10px 0px;
-    background-color: rgba(138, 179, 255, 0.49);
+    background-color: rgba(188, 212, 26, 0.62);
     border: 1px;
     border-radius: 8px;
     font-size: 17px;
@@ -637,7 +653,7 @@ header li{
 #result-btn:hover{
     color: white;
     font-weight: bolder;
-    background-color: rgba(39, 106, 255, 0.64);
+    background-color: rgb(188, 212, 26);
 }
 /*------------------------------MAIN-------------------------------------*/
 main{
@@ -928,7 +944,7 @@ main{
     height: 25px;
 }
 
-.quantity, .cart-quantity{
+.quantity, .cart-quantity, #quantity{
     align-content: center;
 }
 
@@ -1095,7 +1111,7 @@ td a{
     width: 300px;
     height: 40px;
     margin: 20px auto;
-    background-color: rgba(138, 179, 255, 0.49);
+    background-color: rgba(188, 212, 26, 0.5);
     border: 1px;
     border-radius: 8px;
     font-size: 17px;
@@ -1105,12 +1121,12 @@ td a{
 #board-write-register:hover{
     color: white;
     font-weight: bolder;
-    background-color: rgba(39, 106, 255, 0.64);
+    background-color: rgb(188, 212, 26);
 }
 
 .page-active{
     font-weight: bolder;
-    color: rgb(39, 106, 255);
+    color: rgb(188, 212, 26);
     font-size: 17px;
 }
 
@@ -1123,7 +1139,7 @@ td a{
 
 .article-btn{
     display: block;
-    background-color: rgb(39, 106, 255);
+    background-color: rgb(188, 212, 26);
     text-decoration: none;
     color: white;
     border-radius: 5px;
@@ -1139,7 +1155,7 @@ td a{
 }
 
 #board-title-list:hover{
-    color: #3694ff;
+    color: rgba(188, 212, 26, 0.62);
     font-weight: bolder;
 }
 
@@ -1313,7 +1329,7 @@ td a{
     text-align: center;
 }
 
-.price-sum{
+#price-sum{
     width: 150px;
 }
 
@@ -1382,8 +1398,13 @@ td a{
 }
 
 .cart-order{
-    background-color: rgba(136, 192, 133, 0.49);
+    background-color: rgba(188, 212, 26, 0.6);
     border: none;
+}
+
+.cart-order:hover{
+    background-color: rgb(188, 212, 26);
+    font-weight: bolder;
 }
 
 /*------------------------------FOOTER-----------------------------------*/

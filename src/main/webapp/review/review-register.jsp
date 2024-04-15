@@ -89,7 +89,7 @@
                         <br>
                         <div class="review-register-wrap">
                             <textarea name="content" rows="5" cols="120" disabled placeholder="리뷰 작성"></textarea>
-                            <input type="submit" class="review-register-btn" style="background-color: yellowgreen; border: 0px" value="로그인">
+                            <input type="submit" class="review-register-btn" style="background-color: #bcd41a; border: 0px" value="로그인">
                         </div>
                     </form>
                     <input disabled type="file">
