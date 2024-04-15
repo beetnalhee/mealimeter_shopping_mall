@@ -28,14 +28,12 @@
     rel="stylesheet">
   <link rel="stylesheet" href="/css/index.css">
   <c:url var="register_action" value="/member/register-action.jsp" />
-
-  <script>
-    // 회원가입 폼 유효성 검사
+  <script type="text/javascript" src="/js/validator.js">
     document.getElementById('register-form').addEventListener('submit', function(event) {
       // 아이디 유효성 검사
       const id = document.getElementById('register-id').value.trim();
-      if (Validator.isEmpty(id) || !Validator.isUsername(id)) {
-        alert('아이디는 최소 4자 이상, 16자 이하의 영문자 또는 숫자로 입력해주세요.');
+      if (id.length < 4 || id.length > 16) {
+        alert('아이디는 4자 이상, 16자 이하로 입력해주세요.');
         event.preventDefault();
         return;
       }
@@ -43,8 +41,8 @@
       // 비밀번호 유효성 검사
       const password = document.getElementById('register-pw').value.trim();
       const passwordConfirm = document.getElementById('register-pw-confirm').value.trim();
-      if (Validator.isEmpty(password)) {
-        alert('비밀번호를 입력해주세요.');
+      if (password.length < 6 || password.length > 20) {
+        alert('비밀번호는 6자 이상, 20자 이하로 입력해주세요.');
         event.preventDefault();
         return;
       }
@@ -55,49 +53,50 @@
       }
 
       // 이름 유효성 검사
-      const name = document.getElementById("register-name").value.trim();
-      if (Validator.isEmpty(name) || !Validator.isName(name)) {
-        alert('이름을 올바르게 입력해주세요.');
+      const name = document.getElementById('register-name').value.trim();
+      if (name === '') {
+        alert('이름을 입력해주세요.');
         event.preventDefault();
         return;
       }
 
       // 이메일 유효성 검사
-      const email = document.getElementById("register-email").value.trim();
-      if (Validator.isEmpty(email) || !Validator.isEmail(email)) {
+      const email = document.getElementById('register-email').value.trim();
+      if (!/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)) {
         alert('올바른 이메일 주소를 입력해주세요.');
         event.preventDefault();
         return;
       }
 
       // 연락처 유효성 검사
-      const phoneNumber = document.getElementById("register-phonenumber").value.trim();
-      if (Validator.isEmpty(phoneNumber) || !Validator.isNumber(phoneNumber)) {
+      const phoneNumber = document.getElementById('register-phonenumber').value.trim();
+      if (!/^[0-9]{10,11}$/.test(phoneNumber)) {
         alert('올바른 연락처를 입력해주세요.');
         event.preventDefault();
         return;
       }
 
       // 우편번호 유효성 검사
-      const zipCode = document.getElementById("register-zipcode").value.trim();
-      if (Validator.isEmpty(zipCode) || !Validator.isNumber(zipCode)) {
-        alert('우편번호를 입력해주세요.');
+      const zipCode = document.getElementById('register-zipcode').value.trim();
+      if (!/^[0-9]{5}$/.test(zipCode)) {
+        alert('올바른 우편번호를 입력해주세요.');
         event.preventDefault();
         return;
       }
 
       // 상세주소 유효성 검사
-      const address = document.getElementById("register-address").value.trim();
-      if (Validator.isEmpty(address)) {
+      const address = document.getElementById('register-address').value.trim();
+      if (address === '') {
         alert('상세주소를 입력해주세요.');
         event.preventDefault();
         return;
-      }
     });
 
-
   </script>
-</head>
+
+  </head>
+
+
 
 <body>
 <!-- 헤더 시작 -->
@@ -146,12 +145,12 @@
 
             <li class="register-info">
               <label for="register-zipcode">우편번호</label>
-              <input class="register-input" name="zipCode" type="number" id="register-zipcode" placeholder="우편번호" >
+              <input class="register-input" name="zipCode" type="number" id="register-zipcode" placeholder="우편번호" required >
             </li>
 
             <li class="register-info">
               <label for="register-address">상세주소</label>
-              <input class="register-input" name="userAddress" type="text" id="register-address" placeholder="상세주소" >
+              <input class="register-input" name="userAddress" type="text" id="register-address" placeholder="상세주소" required >
             </li>
 
             <li class="register-info">
@@ -160,7 +159,7 @@
             </li>
           </ul>
         </fieldset>
-        <button id="register-btn" type="submit">회원가입 하기</button>
+        <button id="register-btn" type="submit" onclick="">회원가입 하기</button>
       </form>
     </div>
   </main>
@@ -170,6 +169,7 @@
   <jsp:include page="/module/footer.jsp" />
   <!-- footer 종료 -->
 </div>
+
 </body>
 
 </html>

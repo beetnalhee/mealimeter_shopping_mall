@@ -16,6 +16,7 @@
 </c:forEach>
 
 
+
 <!DOCTYPE html>
 <html lang="ko">
 
@@ -51,11 +52,13 @@
           <h1 class="title-text">장바구니</h1>
           <div class="cart-wrap">
             <div class="cart-controller">
+
               <div class="check-box">
                 <label for="select-all" class="chk_box">
                 <input class="cart-check-all" id="select-all" checked type="checkbox" />
                   <span class="on"></span>
                   전체선택 (<span>0</span>/${cartList.size()})
+
                 </label>
               </div>
               <div class="cart-select-btn">
