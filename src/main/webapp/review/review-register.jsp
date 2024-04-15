@@ -84,7 +84,7 @@
     <select class="review-register-title" name="productId">
           <option class="">-- 리뷰할 상품을 선택해주세요. --</option>
           <c:forEach var="product" items="${products}">
-            <option value="${product.prodId}">${product.podName}</option>
+            <option value="${product.prodId}">${product.prodName}</option>
           </c:forEach>
         </select>
     </div>
