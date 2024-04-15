@@ -73,17 +73,13 @@
         </div>
       <div class="order-payment">
         <h2 class="order-title">결제정보</h2>
-        <div>
-          <button class="order-payment-method">신용카드 결제</button>
-          <select name="card-info">
-            <option value="" label="카드를 선택하세요."></option>
-            <option value="KB" label="KB국민카드"></option>
-            <option value="WOORI" label="우리카드"></option>
-            <option value="SAMSUNG" label="삼성카드"></option>
-            <option value="HYUNDAI" label="현대카드"></option>
-            <option value="SHINHAN" label="신한카드"></option>
-            <option value="NH" label="농협카드"></option>
-          </select>
+        <div class="payment-wrap">
+          <label for="payment-card">
+            <input type="radio" name="payment" value="CARD" id="payment-card" checked>카드결제
+          </label>
+          <label>
+          <input type="radio" name="payment" value="CASH">계좌이체
+          </label>
         </div>
       </div>
       <div class="order-orderlist-wrap">
@@ -106,7 +102,7 @@
         </c:forEach>
         <div class="order-total-price-wrap">
           <div>총 결제금액</div>
-          <div class="order-total-price"><%=totalPrice%>원</div>
+          <div class="order-total-price"></div>
         </div>
       </div>
       <a class="order-btn" href="" >결제하기</a>
@@ -118,5 +114,10 @@
   <!-- footer 종료 -->
 </div>
 </body>
+
+<script>
+  let totalPrice = <%=totalPrice%>;
+  document.querySelector(".order-total-price").innerText = totalPrice.toLocaleString() + "원";
+</script>
 
 </html>

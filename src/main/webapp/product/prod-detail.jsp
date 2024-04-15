@@ -130,7 +130,6 @@
                 </li>
                 <li class="prod-btn-wrap">
                   <button type="button" onclick="addCart()" >장바구니 담기</button>
-                  <button type="button" onclick="location.href='/order/order.jsp'">주문하기</button>
                 </li>
               </ul>
             </div>
