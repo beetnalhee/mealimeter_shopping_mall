@@ -55,7 +55,7 @@
       }
 
       // 이름 유효성 검사
-      const name = document.getElementById('register-name').value.trim();
+      const name = document.getElementById("register-name").value.trim();
       if (Validator.isEmpty(name) || !Validator.isName(name)) {
         alert('이름을 올바르게 입력해주세요.');
         event.preventDefault();
@@ -63,7 +63,7 @@
       }
 
       // 이메일 유효성 검사
-      const email = document.getElementById('register-email').value.trim();
+      const email = document.getElementById("register-email").value.trim();
       if (Validator.isEmpty(email) || !Validator.isEmail(email)) {
         alert('올바른 이메일 주소를 입력해주세요.');
         event.preventDefault();
@@ -71,23 +71,23 @@
       }
 
       // 연락처 유효성 검사
-      const phoneNumber = document.getElementById('register-phonenumber').value.trim();
+      const phoneNumber = document.getElementById("register-phonenumber").value.trim();
       if (Validator.isEmpty(phoneNumber) || !Validator.isNumber(phoneNumber)) {
         alert('올바른 연락처를 입력해주세요.');
         event.preventDefault();
         return;
       }
 
-      // // 우편번호 유효성 검사
-      // const zipCode = document.getElementById('register-zipcode').value.trim();
-      // if (Validator.isEmpty(zipCode) || !Validator.isNumber(zipCode)) {
-      //   alert('우편번호를 입력해주세요.');
-      //   event.preventDefault();
-      //   return;
-      // }
+      // 우편번호 유효성 검사
+      const zipCode = document.getElementById("register-zipcode").value.trim();
+      if (Validator.isEmpty(zipCode) || !Validator.isNumber(zipCode)) {
+        alert('우편번호를 입력해주세요.');
+        event.preventDefault();
+        return;
+      }
 
       // 상세주소 유효성 검사
-      const address = document.getElementById('register-address').value.trim();
+      const address = document.getElementById("register-address").value.trim();
       if (Validator.isEmpty(address)) {
         alert('상세주소를 입력해주세요.');
         event.preventDefault();

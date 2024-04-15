@@ -27,7 +27,7 @@ Validator.isName = function(input){
 
 // 아이디 형식 검증 (영문자 또는 숫자로 시작하여 영문자, 숫자, 언더스코어(_)로 이루어진 4자 이상 16자 이하의 문자열)
 Validator.isUsername = function(input) {
-  return /^[a-zA-Z0-9_]{4,16}$/.test(input);
+  return /^[a-zA-Z0-9]{4,16}$/.test(input);
 }
 
 

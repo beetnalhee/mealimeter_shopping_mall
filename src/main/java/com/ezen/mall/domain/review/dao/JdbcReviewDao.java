@@ -22,7 +22,7 @@ public class JdbcReviewDao implements ReviewDao {
     public void createReview(Review review) throws SQLException {
         StringBuilder sql = new StringBuilder();
         sql.append(" INSERT INTO review (review_id, subject, content, attach_file, order_no, order_id, user_id, board_id, product_id)")
-                .append(" VALUES(review_seq.nextval,?,?,'nakji.jpg', 0 , 0, ?, 100, ?)");
+                .append(" VALUES(review_seq.nextval,?,?,?, 0 , 0, ?, 100, ?)");
 
         conn = connectionFactory.getConnection();
         pstmt = null;
@@ -31,8 +31,9 @@ public class JdbcReviewDao implements ReviewDao {
             pstmt = conn.prepareStatement(sql.toString());
             pstmt.setString(1, review.getSubject());
             pstmt.setString(2, review.getContent());
-            pstmt.setString(3, review.getUserId());
-            pstmt.setInt(4, review.getProductId());
+            pstmt.setString(3, review.getAttachFile());
+            pstmt.setString(4, review.getUserId());
+            pstmt.setInt(5, review.getProductId());
             pstmt.executeUpdate();
         } finally {
             try {

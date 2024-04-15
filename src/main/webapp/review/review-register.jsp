@@ -49,12 +49,6 @@
     href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Gasoek+One&family=IBM+Plex+Sans+KR&family=Nanum+Gothic&display=swap"
     rel="stylesheet">
   <link rel="stylesheet" href="/css/index.css">
-    <script>
-        const prodNameBox = document.querySelector("#productId");
-        const selectProd = prodNameBox.options[prodNameBox.selectedIndex];
-        const prodName = selectProd.value;
-        document.querySelector("#reviewProdName").text = prodName;
-    </script>
 </head>
 
 <body>
@@ -72,34 +66,65 @@
     <!-- 메인 시작 -->
     <div class="container">
       <h1 class="title-text">밀리미터 생생리뷰</h1>
-      <fieldset>
-      <div class="review-register">
-        <form action="/review/review-action.jsp" method="post" >
-<%--        <div class="review-user-id" name="userId">작성자 : ${loginMember.id} </div>--%>
-    <label class="review-label" for="userId">작성자:</label>
-    <input type="text" class="review-user-id" name="userId"  id="userId" readonly value="${loginMember.id}"></input>
-    <br>
-    <div class="review-option">
-    <label class="review-label" for="productId">리뷰할 상품 선택:</label>
-        <select class="review-register-title" name="subject" id="productId">
-          <option class="">-- 리뷰할 상품을 선택해주세요. --</option>
-          <c:forEach var="product" varStatus="i" items="${products}">
-            <option name="productId" value="${product.prodId}">${product.prodName}</option>
-          </c:forEach>
-        </select>
-    </div>
-    <br>
-        <div class="review-register-wrap">
-          <textarea name="content" rows="5" cols="120" placeholder="리뷰 작성"></textarea>
-          <input type="submit" class="review-register-btn" value="등록">
 
-<%--          <a href="${register}" class="review-register-btn">등록</a>--%>
-          <%--          <a class="review-register-btn" href="" >등록</a>--%>
-        </div>
-        </form>
-          <input type="file">
-      </div>
+
+        <c:choose>
+            <c:when test="${empty loginMember}">
+            <fieldset>
+                <div class="review-register">
+                    <form action="/member/login.jsp" method="post" >
+                            <%--        <div class="review-user-id" name="userId">작성자 : ${loginMember.id} </div>--%>
+                        <label class="review-label" for="userId">작성자:</label>
+                        <input type="text" class="review-user-id"  name="userId" disabled  id="userId" readonly style="color: red" value="리뷰 작성은 로그인 후 가능합니다."></input>
+                        <br>
+                        <div class="review-option">
+                            <label class="review-label" for="productId-none">리뷰할 상품 선택:</label>
+                            <select class="review-register-title" disabled name="subject" id="productId-none">
+                                <option class="">-- 리뷰할 상품을 선택해주세요. --</option>
+                                <c:forEach var="product" varStatus="i" items="${products}">
+                                    <option value="${product.prodId}">${product.prodName}</option>
+                                </c:forEach>
+                            </select>
+                        </div>
+                        <br>
+                        <div class="review-register-wrap">
+                            <textarea name="content" rows="5" cols="120" disabled placeholder="리뷰 작성"></textarea>
+                            <input type="submit" class="review-register-btn" style="background-color: yellowgreen; border: 0px" value="로그인">
+                        </div>
+                    </form>
+                    <input disabled type="file">
+                </div>
+            </fieldset>
       </fieldset>
+            </c:when>
+            <c:otherwise>
+                <fieldset>
+                    <div class="review-register">
+                        <form action="/review/review-action.jsp" method="post" >
+                                <%--        <div class="review-user-id" name="userId">작성자 : ${loginMember.id} </div>--%>
+                            <label class="review-label" for="userId">작성자:</label>
+                            <input type="text" class="review-user-id" name="userId"  id="userId" readonly value="${loginMember.id}"></input>
+                            <br>
+                            <div class="review-option">
+                                <label class="review-label" for="productId">리뷰할 상품 선택:</label>
+                                <select class="review-register-title" name="subject" id="productId">
+                                    <option class="">-- 리뷰할 상품을 선택해주세요. --</option>
+                                    <c:forEach var="product" varStatus="i" items="${products}">
+                                        <option value="${product.prodId}">${product.prodName}</option>
+                                    </c:forEach>
+                                </select>
+                            </div>
+                            <br>
+                            <div class="review-register-wrap">
+                                <textarea name="content" rows="5" cols="120" placeholder="리뷰 작성"></textarea>
+                                <input type="submit" class="review-register-btn" value="등록">
+                            </div>
+                        </form>
+                        <input type="file">
+                    </div>
+                </fieldset>
+            </c:otherwise>
+        </c:choose>
 
       <div class="review">
         <h2>리뷰 <%= list.size() %>건</h2>
@@ -110,9 +135,9 @@
           <div class="review-wrap">
           <ul>
             <il><strong>${review.subject}</strong></il>
-              <li> ${review.regdate} ㅣ ${review.userId} ㅣ <span id="reviewProdName"></span> </li>
+              <li> ${review.regdate} ㅣ ${review.userId} </li>
             <div class="review-content">
-              <div class="review-img" style="background-image: url(/img/prod104.jpg); background-size: cover;"></div>
+              <div class="review-img" style="background-image: url(/img/prod108.jpg); background-size: cover;"></div>
               <div class="review-text">
                 ${review.content}
               </div>

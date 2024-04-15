@@ -1228,6 +1228,7 @@ td a{
     border: none;
     height: 30px;
     padding: 5px 0px;
+    width: 300px;
     /*background-color: rgba(229, 225, 225, 0.47);*/
     /*border : 1px #838383 solid ;*/
 }
