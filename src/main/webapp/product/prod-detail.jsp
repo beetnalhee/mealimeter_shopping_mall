@@ -111,7 +111,7 @@
                 </li>
                 <li class="prod-delivery-price">
                   <div>배송비</div>
-                  <div>3,000원</div>
+                  <div>무료배송</div>
                 </li>
                 <li class="prod-option">
                   옵션선택

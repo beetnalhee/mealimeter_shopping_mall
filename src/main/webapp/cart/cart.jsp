@@ -73,7 +73,7 @@
             <div class="cart-list">
               <ul>
 
-                <c:forEach var="cartItem" items="${cartList}">
+                <c:forEach var="cartItem" items="${cartList}" varStatus="i">
 
                   <script>
                     let count= parseInt(${cartItem.quantity});
