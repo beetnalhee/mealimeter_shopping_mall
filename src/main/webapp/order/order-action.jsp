@@ -12,12 +12,6 @@
 
 
 <%
-    List<CartList> list = (List<CartList>) session.getAttribute("cartList");
-    for (CartList cartList : list) {
-        order.setProdName(cartList.getProduct().getProdName());
-        order.setProdImg(cartList.getProduct().getProdImg());
-    }
-
     order.setUserId(loginMember.getId());
     order.setZipCode(loginMember.getZipCode());
     order.setName(loginMember.getName());
@@ -25,9 +19,8 @@
     order.setPhoneNumber(loginMember.getPhonenumber());
     order.setPayment("CARD");
 
-
     OrderService orderService = new OrderServiceImpl();
     orderService.writeOrder(order);
     session.removeAttribute("cartList");
-    response.sendRedirect("/");
+    response.sendRedirect("/order/order-result.jsp");
 %>

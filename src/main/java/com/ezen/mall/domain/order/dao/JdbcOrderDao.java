@@ -7,9 +7,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.List;
+import java.util.*;
 
 public class JdbcOrderDao implements OrderDao{
     private ConnectionFactory connectionFactory;
@@ -88,8 +86,8 @@ public class JdbcOrderDao implements OrderDao{
     }
 
     @Override
-    public List<Order> findByUserId(String userId) {
-        List<Order> list = new ArrayList<>();
+    public List<Map<String, Object>> findByUserId(String userId) {
+        List<Map<String, Object>> resultList = new ArrayList<>();
         StringBuilder sql = new StringBuilder();
         sql.append("SELECT o.order_id, o.orderdetail_id, o.user_id, o.order_date, o.destination_name, o.destination_zip_code, o.destination_address, o.payment, o.total_amount, ol.order_volume, p.product_name, p.product_img, TO_CHAR(p.price, 'FM999,999') price")
                 .append(" FROM ORDERS o")
@@ -103,21 +101,21 @@ public class JdbcOrderDao implements OrderDao{
             pstmt.setString(1, userId);
             rs = pstmt.executeQuery();
             while (rs.next()) {
-                Order order = new Order();
-                order.setOrderId(rs.getInt("order_id"));
-                order.setOrderDetailId(rs.getInt("orderdetail_id"));
-                order.setUserId(rs.getString("user_id"));
-                order.setOrderDate(rs.getString("order_date"));
-                order.setName(rs.getString("destination_name"));
-                order.setZipCode(rs.getInt("destination_zip_code"));
-                order.setAdress(rs.getString("destination_address"));
-                order.setPayment(rs.getString("payment"));
-                order.setTotalPrice(rs.getInt("total_amount"));
-                order.setProdName(rs.getString("product_name"));
-                order.setProdImg(rs.getString("product_img"));
-                order.setOrderVolume(rs.getString("order_volume"));
-                order.setProdPrice(rs.getString("price"));
-                list.add(order);
+                Map<String, Object> orderMap = new HashMap<>();
+                orderMap.put("orderId", rs.getInt("order_id"));
+                orderMap.put("orderDetailId", rs.getInt("orderdetail_id"));
+                orderMap.put("userId", rs.getString("user_id"));
+                orderMap.put("orderDate", rs.getString("order_date"));
+                orderMap.put("name", rs.getString("destination_name"));
+                orderMap.put("zipCode", rs.getInt("destination_zip_code"));
+                orderMap.put("address", rs.getString("destination_address"));
+                orderMap.put("payment", rs.getString("payment"));
+                orderMap.put("totalPrice", rs.getInt("total_amount"));
+                orderMap.put("orderVolume", rs.getInt("order_volume"));
+                orderMap.put("productName", rs.getString("product_name"));
+                orderMap.put("productImg", rs.getString("product_img"));
+                orderMap.put("price", rs.getString("price"));
+                resultList.add(orderMap);
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -130,13 +128,11 @@ public class JdbcOrderDao implements OrderDao{
                 throw new RuntimeException(e);
             }
         }
-        return list;
+        return resultList;
     }
 
     public static void main(String[] args) throws SQLException {
         OrderDao orderDao = new JdbcOrderDao();
-        Order order = new Order(900, "chan999", 109, "15-04-2024", "김찬규", 16495, "서울시 노원구", "010-1234-4567", "CARD", 0, 45000);
-        orderDao.createOrder(order);
         System.out.println("주문완료");
     }
 }

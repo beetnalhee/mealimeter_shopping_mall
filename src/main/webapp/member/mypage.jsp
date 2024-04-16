@@ -7,14 +7,13 @@
 <%@ page import="com.ezen.mall.domain.order.dto.Order" %>
 <%@ page import="java.util.List" %>
 <%@ page import="java.util.ArrayList" %>
+<%@ page import="java.util.Map" %>
 <% Member loginMember = (Member) pageContext.findAttribute("loginMember"); %>
 
 <%
   OrderService orderService = new OrderServiceImpl();
-  List<Order> list = orderService.searchOrder(loginMember.getId());
+  List<Map<String, Object>> list = orderService.searchOrder(loginMember.getId());
   request.setAttribute("list", list);
-
-
 %>
 
 <!DOCTYPE html>

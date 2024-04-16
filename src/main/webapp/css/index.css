@@ -538,6 +538,30 @@ header li{
     background-color: rgb(188, 212, 26);
 }
 
+.order-result{
+    margin: 0px auto;
+}
+
+.order-result-wrap{
+    width: 1000px;
+    min-width: 1000px;
+    height: 300px;
+    margin: 0px auto;
+    border: 1px solid #bebebe;
+    border-radius: 5px;
+}
+
+.order-result-text{
+    font-size: 18px;
+    padding: 20px 0;
+}
+
+.orderer-name{
+    font-size: 19px;
+    font-weight: bolder;
+    color: #95a807;
+}
+
 /*----------------------------회원가입-------------------------*/
 .register-main{
     margin: 0px auto;
