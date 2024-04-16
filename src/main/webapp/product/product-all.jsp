@@ -11,14 +11,14 @@
 
 <%
   ProductService productService = new ProductServiceImpl();
-  List<Product> list = productService.hotdealList();
+  List<Product> list = productService.productList();
   request.setAttribute("list", list);
 %>
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>mealimeter:핫딜</title>
+  <title>mealimeter:전체상품</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link

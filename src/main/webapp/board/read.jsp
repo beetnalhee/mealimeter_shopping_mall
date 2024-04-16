@@ -46,7 +46,7 @@
 
       <section id="section">
         <div class="contents">
-          <h1 class="board-text">${article.subject}</h1>
+          <h1 class="title-text">${article.subject}</h1>
           <form id="board-write-form" action="/board/register-action.jsp" method="post">
             <div class="board-write-group board-write-list">
               <label class="board-write-label">작성자</label>

@@ -68,12 +68,12 @@
               </div>
               <div class="mypage-order-list">
                 <div>
-                  <img src="${order.prodImg}">
+                  <img src="${order.productImg}">
                 </div>
                 <div class="mypage-order-info">
                   <ul>
-                    <li>${order.prodName}</li>
-                    <li>${order.prodPrice}원 / ${order.orderVolume}개</li>
+                    <li>${order.productName}</li>
+                    <li>${order.price}원 / ${order.orderVolume}개</li>
                   </ul>
                 </div>
               </div>

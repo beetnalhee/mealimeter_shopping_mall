@@ -2,9 +2,17 @@
 <%@ page import="com.ezen.mall.domain.cart.CartList" %>
 <%@ page import="java.util.List" %>
 <%@ page import="java.util.ArrayList" %>
+<%@ page import="java.text.NumberFormat" %>
+<%@ page import="java.util.Locale" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html; charset=utf-8" pageEncoding="utf-8" %>
 <% Member loginMember = (Member) pageContext.findAttribute("loginMember"); %>
+
+<c:if test="${empty loginMember}">
+  <c:set var="message" value="주문은 로그인 후 가능합니다." scope="request" />
+  <c:set var="referer" value="/order/order.jsp" scope="request" />
+  <jsp:forward page="/member/login.jsp" />
+</c:if>
 
 <%
   session.getAttribute("cartList");

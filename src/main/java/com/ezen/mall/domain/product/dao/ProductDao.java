@@ -9,5 +9,8 @@ import java.util.List;
 
 public interface ProductDao {
     public List<Product> findByAll() throws SQLException;
+    public List<Product> findByHotdeal() throws SQLException;
+    public List<Product> findByNewProd() throws SQLException;
     public Product findProduct(int prodId);
+
 }

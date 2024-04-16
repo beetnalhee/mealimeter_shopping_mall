@@ -27,6 +27,24 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
+    public List<Product> newProdList() {
+        try {
+            return productDao.findByNewProd();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @Override
+    public List<Product> hotdealList() {
+        try {
+            return productDao.findByHotdeal();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @Override
     public Product searchProduct(int prodId) {
         return productDao.findProduct(prodId);
     }

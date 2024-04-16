@@ -99,7 +99,7 @@ public class JdbcArticleDao implements ArticleDao{
                 case "tcw" : sql.append(" AND user_id LIKE ? OR content LIKE ? OR subject LIKE ?"); break;
             }
         }
-        sql.append(" ORDER  BY group_no DESC, order_no ASC")
+        sql.append(" ORDER  BY article_id DESC, group_no DESC, order_no ASC")
                 .append("       )) ")
                 .append(" WHERE  request_page = ?");
 
@@ -275,15 +275,6 @@ public class JdbcArticleDao implements ArticleDao{
             } catch (SQLException e) {
                 throw new RuntimeException(e);
             }
-        }
-    }
-
-    public static void main(String[] args) throws SQLException {
-        ArticleDao articleDao = new JdbcArticleDao();
-        Article article = articleDao.findArticle(100);
-        List<Article> list = articleDao.findByAll(10, 1, null, null);
-        for (Article article1 : list) {
-            System.out.println(article1);
         }
     }
 }

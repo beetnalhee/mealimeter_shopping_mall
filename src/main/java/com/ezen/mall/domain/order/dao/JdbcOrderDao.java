@@ -23,7 +23,7 @@ public class JdbcOrderDao implements OrderDao{
     public void createOrder(Order order) throws SQLException {
         StringBuilder sql = new StringBuilder();
         sql.append(" INSERT INTO orders (order_id, orderdetail_id, user_id, order_date, destination_name, destination_zip_code, destination_address, destination_phonenumber, payment, delivery_charge, total_amount)")
-                .append(" VALUES(orders_seq.nextval, 121, ? ,SYSDATE, ?, ?, ?, ?, ?, 0, ? )");
+                .append(" VALUES(orders_seq.nextval, 103, ? ,SYSDATE, ?, ?, ?, ?, ?, 0, ? )");
 
         conn = connectionFactory.getConnection();
         pstmt = null;
@@ -129,10 +129,5 @@ public class JdbcOrderDao implements OrderDao{
             }
         }
         return resultList;
-    }
-
-    public static void main(String[] args) throws SQLException {
-        OrderDao orderDao = new JdbcOrderDao();
-        System.out.println("주문완료");
     }
 }

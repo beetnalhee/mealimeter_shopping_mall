@@ -10,7 +10,6 @@
 
 <jsp:useBean id="order" class="com.ezen.mall.domain.order.dto.Order" scope="session" />
 
-
 <%
     order.setUserId(loginMember.getId());
     order.setZipCode(loginMember.getZipCode());

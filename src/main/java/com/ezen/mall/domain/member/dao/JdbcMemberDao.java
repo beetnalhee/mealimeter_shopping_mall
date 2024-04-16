@@ -148,28 +148,5 @@ public class JdbcMemberDao implements MemberDao{
         }
         return list;
     }
-
-    public static void main(String[] args) throws Exception {
-        MemberDao memberDao = new JdbcMemberDao();
-        Member member = memberDao.findById("butter");
-        System.out.println(member);
-//
-//        List<Member> list = memberDao.findAll();
-//        for (Member member : list) {
-//            System.out.println(member);
-        }
-
-//        boolean isMember = memberDao.findByIdNPasswd("AAAAA","12345");
-//        System.out.println(isMember);
-
-
-
-
-//
-//        Member member = new Member("Thu","1111","목요일","thu@gmail.com","010-111","11111","서울시 노원구");
-//        memberDao.create(member);
-//        System.out.println("회원가입 완료...");
-
-
-    }
+}
 

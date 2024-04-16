@@ -8,7 +8,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 
-
 <%
     ProductService productService = new ProductServiceImpl();
     Product product = productService.searchProduct(Integer.parseInt(request.getParameter("prodId")));

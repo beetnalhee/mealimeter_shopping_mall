@@ -9,7 +9,7 @@
     <div class="nav-list">
       <ul>
         <li class="nav-list-text">
-          <a href="/product/best-product.jsp">베스트</a>
+          <a href="/product/product-all.jsp">전체상품</a>
         </li>
         <li class="nav-list-text">
           <a href="/product/new-product.jsp">신메뉴</a>

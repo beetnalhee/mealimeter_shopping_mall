@@ -11,7 +11,7 @@
 
 <%
   ProductService productService = new ProductServiceImpl();
-  List<Product> list = productService.productList();
+  List<Product> list = productService.newProdList();
   request.setAttribute("list", list);
 %>
 

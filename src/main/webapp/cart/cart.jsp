@@ -3,6 +3,8 @@
 <%@ page import="com.ezen.mall.domain.cart.CartList" %>
 <%@ page import="java.util.List" %>
 <%@ page import="java.util.ArrayList" %>
+<%@ page import="java.text.NumberFormat" %>
+<%@ page import="java.util.Locale" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <%
@@ -11,7 +13,7 @@
 
 <c:set var="totalProdPrice" value="0" />
 <c:forEach var="cartItem" items="${cartList}">
-  <c:set var="subtotal" value="${cartItem.quantity * cartItem.product.price}" />
+  <c:set var="subtotal" value="${cartItem.quantity * cartItem.product.price}"  />
   <c:set var="totalProdPrice" value="${totalProdPrice + subtotal}" />
 </c:forEach>
 
@@ -169,7 +171,7 @@
     count++;
     countElement.textContent = count;
     let priceElement = document.querySelector(".price-sum" + index);
-    priceElement.textContent = comma(count * price);
+    priceElement.textContent = count * price;
     updateTotal();
   }
 
@@ -180,7 +182,7 @@
       count--;
       countElement.textContent = count;
       let priceElement = document.querySelector(".price-sum" + index);
-      priceElement.textContent = comma(count * price);
+      priceElement.textContent = count * price;
       updateTotal();
     }
   }
