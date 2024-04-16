@@ -6,8 +6,6 @@
 
 
 <% request.setCharacterEncoding("utf-8"); %>
-<%@ page import="com.ezen.mall.domain.member.service.MemberService" %>
-<%@ page import="com.ezen.mall.domain.member.dto.Member" %>
 
 <jsp:useBean id="member" class="com.ezen.mall.domain.member.dto.Member" scope="session" />
 <jsp:setProperty name="member" property="*" />

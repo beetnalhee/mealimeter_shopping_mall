@@ -192,10 +192,6 @@
     updateTotal();
   }
 
-  function comma(x) {
-    return new Intl.NumberFormat('ko-KR').format(x);
-  }
-
 
   window.onload = updateTotal;
 </script>

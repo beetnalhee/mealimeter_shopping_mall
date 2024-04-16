@@ -56,7 +56,7 @@
 
       <section id="section">
         <div class="contents">
-          <h1 class="board-text">게시글 쓰기</h1>
+          <h1 class="title-text">게시글 쓰기</h1>
           <form id="board-write-form" action="/board/register-action.jsp" method="post">
           <input type="hidden" name="boardId" value="<%=boardId%>">
               <div class="board-write-group board-write-list">

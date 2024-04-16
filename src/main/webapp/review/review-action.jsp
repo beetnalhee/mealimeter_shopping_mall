@@ -20,16 +20,6 @@
 
 
 <%
-//    int boardId = Integer.parseInt(request.getParameter("boardId"));
-//    String passwd = "9999";
-//
-//    article.setBoardId(boardId);
-//    article.setPasswd(passwd);
-//
-//    BoardService boardService = new BoardServiceImpl();
-//    boardService.writeArticle(article);
-//    response.sendRedirect("list.jsp?boardId=" + boardId);
-
     int prodId = Integer.parseInt(request.getParameter("subject"));
     ProductService productService = new ProductServiceImpl();
     Product product = productService.searchProduct(prodId);
