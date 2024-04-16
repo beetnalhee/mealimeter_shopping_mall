@@ -42,6 +42,7 @@
       <h1 class="title-text">주문완료</h1>
       <div class="order-result-wrap">
         <p class="order-result-text"><span class="orderer-name">${loginMember.getName()}</span>님 주문해주셔서 감사합니다.</p>
+        <button class="home-btn" type="button" onclick="location.href='/'">홈으로</button>
       </div>
 
     </div>
