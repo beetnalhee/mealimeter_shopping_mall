@@ -7,7 +7,8 @@
 </br>
 
  # 📃 프로젝트 정보
- ![logo](https://github.com/beetnalhee/mealimeter_shopping_mall/assets/151362604/778ec6cc-4f67-461b-95f6-b7123e05ec88)
+
+<img src="https://github.com/beetnalhee/mealimeter_shopping_mall/assets/151362604/b1647627-e132-4ddc-8e4d-947b76de83d3" width="600" height="330"/></br>
 
 > 1. 제작기간 : 2024.04.08 ~ 04.16.
 > 2. 참여인원 2명
@@ -41,29 +42,11 @@
 <summary>ERD</summary>
 <div markdown="1">
 
-<img src="https://github.com/beetnalhee/project_secondHalf/assets/151362604/98e01b43-01ff-4fc5-a91d-41c291b568ec" width="600" height="400"/></br>
+<img src="https://github.com/beetnalhee/mealimeter_shopping_mall/assets/151362604/57117f5a-7658-4c8f-9a0e-3a2f2045dbcd" width="600" height="400"/></br>
 
 </div>
 </details>
 
-<details>
-<summary>Structure</summary>
-<div markdown="1">
-
-<img src="https://github.com/beetnalhee/project_secondHalf/assets/151362604/07f6fe74-5d69-45be-b1c1-8a3eefd2a913" width="600" height="350"/></br>
-
-</div>
-</details>
-
-<details>
-<summary>도메인 모델</summary>
-<div markdown="1">
-
-<img src="https://github.com/beetnalhee/project_secondHalf/assets/151362604/9aef6bc1-b82c-4dc4-996b-f925b088ae38" width="600" height="400"/></br>
-
-
-</div>
-</details>
 
 # 🔑 핵심기능
 
