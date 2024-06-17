@@ -7,8 +7,8 @@
 </br>
 
  # 📃 프로젝트 정보
-![후반전로고](https://github.com/beetnalhee/project_secondHalf/assets/151362604/1e685c84-4af4-4709-8588-57035c85c3d8)
- 
+ ![logo](https://github.com/beetnalhee/mealimeter_shopping_mall/assets/151362604/778ec6cc-4f67-461b-95f6-b7123e05ec88)
+
 > 1. 제작기간 : 2024.04.08 ~ 04.16.
 > 2. 참여인원 2명
 > 3. 개발한 부분 : DB구축, 게시판 리뷰작성 기능, 디자인 
@@ -21,17 +21,14 @@
 > VsCode</br>
 
 > * Back-end : </br>
-> Spring</br>
-> SpringBoot</br>
-> Juint</br>
-> MyBatis<br />
+> Java</br>
+> ApacheTomcat<br />
+> JSP<br />
 
 > * Front-end : </br>
 > HTML</br>
 > CSS</br>
 > JavaScript</br>
-> React</br>
-> KakaomapAPI</br>
 
 > * DBMS :</br>
 > Oracle<br />
