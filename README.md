@@ -68,10 +68,10 @@
 </br>
 
 ### 3. 장바구니
-> * 동네 어르신들이 온/오프라인으로 만날 수 있는 소모임 기능
-> * 짝궁, 취미, 건강 기타 카테고리중 선택하여 게시글 작성
-> * 게시글 생성 시, MEET_ROOM 생성되고 참여하기 버튼 클릭 시 memberId를 해당 게시글에 추가하여 모임 참여자 명단을 LIST로 출력
-> * 짝꿍 카테고리를 통해 1:1 대화창으로 이동</br>
+> * ProdId, quantity 를 parameter로 받아 Product객체와 quantity를 CartList객체에 저장
+> * 기존 장바구니 상품 여부에따라 CartList를 새로생성하거나 기존 CartList에 추가
+> * session에 있는 CartList를 foreach를 통해 장바구니 리스트 동적 생성
+> * 장바구니 리스트에 있는 수량 버튼마다 foreach의 varstatus옵션을 통해 버튼 별 index매칭 후 plus, minus 기능 구현</br>
 > *  [코드보기](https://github.com/beetnalhee/project_secondHalf/blob/main/src/main/java/com/ezen/springmvc/web/meet/controller/MeetController.java)
 </br>
 
