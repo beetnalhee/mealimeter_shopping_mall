@@ -1,7 +1,7 @@
-# 🥗🥪 밀키트 쇼핑몰 "밀리미터" 프로젝트 
+# 🥗🥪 밀키트 쇼핑몰 "밀리미터"  
 
 
-### 비슷한 밀키한 시장에서, 작은 차이로 차별화한 밀키트 쇼핑몰 프로젝트 입니다.
+### 비슷한 밀키트 시장에서, 작은 차이로 차별화한 밀키트 쇼핑몰 프로젝트 입니다.
 
 </br>
 
@@ -55,16 +55,15 @@
 > * 쇼핑몰 회원가입 및 로그인 기능
 > * JDBC를 사용한 데이터베이스 연동(Oracle)
 > * memberDao를 통해 회원정보에 access, 쿼리문 insert
-> * 비회원일 경우, 주문하기클릭시, 로그인 화면으로 redirect </br>
+> * 비회원일 경우 주문시에는 로그인 화면으로 redirect </br>
 > * [코드보기](https://github.com/beetnalhee/project_secondHalf/blob/main/src/main/java/com/ezen/springmvc/web/map/controller/MapController.java)
 </br>
 
 ### 2. 제품정보 
-> * 고령층을 위한 쉬운 인스타그램 
-> * 태그, 검색어 유무에 따른 리스트 결과 출력,게시글 memberId를 통한 writer 정보 출력
-> * categoryId, dailyArticleId를 통해 게시글 상세 출력
-> * 좋아요, 다중파일 업로드 및 미리보기 기능
-> * 프로필 클릭하면 1:1 대화하기 기능으로 연결</br>
+> * 쇼핑몰 제품 리스트 게시 및, 상세보기
+> * 쿼리문을 활용해 DB에서 product_id, product_type 등 출력하여 화면에 출력
+> * prodId를 통해 제품 상세 정보 출력
+> * JavaScript로 수량증감 함수 생성하여 동적으로 제품수량 변경시 변동되는 가격 실시간으로 반영</br>
 > * [코드보기](https://github.com/beetnalhee/project_secondHalf/blob/main/src/main/java/com/ezen/springmvc/web/daily/controller/DailyController.java)
 </br>
 
