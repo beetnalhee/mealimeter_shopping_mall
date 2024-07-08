@@ -72,7 +72,7 @@
 > * 기존 장바구니 상품 여부에따라 CartList를 새로생성하거나 기존 CartList에 추가
 > * session에 있는 CartList를 foreach를 통해 장바구니 리스트 동적 생성
 > * 장바구니 리스트에 있는 수량 버튼마다 foreach의 varStatus옵션을 통해 버튼 별 index매칭 후 plus, minus 기능 구현</br>
-> *  [코드보기](https://github.com/beetnalhee/project_secondHalf/blob/main/src/main/java/com/ezen/springmvc/web/meet/controller/MeetController.java)
+> *  [코드보기](https://github.com/beetnalhee/mealimeter_shopping_mall/tree/main/src/main/java/com/ezen/mall/domain/cart)
 </br>
 
 ### 4. 리뷰게시판
