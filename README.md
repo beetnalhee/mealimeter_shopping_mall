@@ -71,15 +71,15 @@
 > * ProdId, quantity 를 parameter로 받아 Product객체와 quantity를 CartList객체에 저장
 > * 기존 장바구니 상품 여부에따라 CartList를 새로생성하거나 기존 CartList에 추가
 > * session에 있는 CartList를 foreach를 통해 장바구니 리스트 동적 생성
-> * 장바구니 리스트에 있는 수량 버튼마다 foreach의 varstatus옵션을 통해 버튼 별 index매칭 후 plus, minus 기능 구현</br>
+> * 장바구니 리스트에 있는 수량 버튼마다 foreach의 varStatus옵션을 통해 버튼 별 index매칭 후 plus, minus 기능 구현</br>
 > *  [코드보기](https://github.com/beetnalhee/project_secondHalf/blob/main/src/main/java/com/ezen/springmvc/web/meet/controller/MeetController.java)
 </br>
 
-### 4. 게시판
-> * 일상공유게시물을 통한 대화 또는 동네친구에서 짝꿍 카테고리를 통한 채팅기능
-> * WebSocket을 활용한 양방향 서버통신
-> * 접속 시, roomId에 대한 subscribe로 지속적인 메세지 수신 가능
-> * 수신한 메세지를 DB에 저장, 채팅화면에 DOM처리</br>
+### 4. 리뷰게시판
+> * 제품 리뷰 게시판
+> * 비회원은 조회만 가능하며, 리뷰등록은 회원만 가능
+> * foreach의 varStatus옵션을 통해 리뷰할 상품을 선택한다
+> * createReview dto로 DB에 리뷰를 저장하고 findreviewByAll dto로 저장된 리뷰를 화면에 출력</br>
 > *  [코드보기](https://github.com/beetnalhee/project_secondHalf/blob/main/src/main/java/com/ezen/springmvc/web/chat/controller/ChatRoomController.java)
 </br>
 
