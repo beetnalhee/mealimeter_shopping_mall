@@ -56,7 +56,7 @@
 > * JDBC를 사용한 데이터베이스 연동(Oracle)
 > * memberDao를 통해 회원정보에 access, 쿼리문 insert
 > * 비회원일 경우 주문시에는 로그인 화면으로 redirect </br>
-> * [코드보기](https://github.com/beetnalhee/project_secondHalf/blob/main/src/main/java/com/ezen/springmvc/web/map/controller/MapController.java)
+> * [코드보기](https://github.com/beetnalhee/mealimeter_shopping_mall/tree/main/src/main/java/com/ezen/mall/domain/member)
 </br>
 
 ### 2. 제품정보 
