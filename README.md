@@ -64,7 +64,7 @@
 > * 쿼리문을 활용해 DB에서 product_id, product_type 등 출력하여 화면에 출력
 > * prodId를 통해 제품 상세 정보 출력
 > * JavaScript로 수량증감 함수 생성하여 동적으로 제품수량 변경시 변동되는 가격 실시간으로 반영</br>
-> * [코드보기](https://github.com/beetnalhee/project_secondHalf/blob/main/src/main/java/com/ezen/springmvc/web/daily/controller/DailyController.java)
+> * [코드보기](https://github.com/beetnalhee/mealimeter_shopping_mall/tree/main/src/main/java/com/ezen/mall/domain/product)
 </br>
 
 ### 3. 장바구니
