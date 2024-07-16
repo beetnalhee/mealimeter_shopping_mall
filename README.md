@@ -78,7 +78,7 @@
 ### 4. 리뷰게시판
 > * 제품 리뷰 게시판
 > * 비회원은 조회만 가능하며, 리뷰등록은 회원만 가능
-> * foreach의 varStatus옵션을 통해 리뷰할 상품을 선택한다
+> * foreach의 varStatus옵션을 통해 리뷰할 상품을 선택
 > * createReview dto로 DB에 리뷰를 저장하고 findreviewByAll dto로 저장된 리뷰를 화면에 출력</br>
 > *  [코드보기](https://github.com/beetnalhee/mealimeter_shopping_mall/tree/main/src/main/java/com/ezen/mall/domain/review)
 </br>
