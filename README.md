@@ -24,7 +24,7 @@ Java를 기반으로 한 **MVC(Model 1) 아키텍처**를 활용하여 개발하
 
 > * Development Environment</br>
 > IntelliJ</br>
-> VsCode</br>
+> VSCode</br>
 
 > * Back-end : </br>
 > Java</br>
