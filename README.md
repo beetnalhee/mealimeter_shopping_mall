@@ -48,7 +48,7 @@ Java를 기반으로 한 **MVC(Model 1) 아키텍처**를 활용하여 개발하
 <summary>ERD</summary>
 <div markdown="1">
 
-<img src="https://github.com/beetnalhee/mealimeter_shopping_mall/assets/151362604/57117f5a-7658-4c8f-9a0e-3a2f2045dbcd" width="600" height="400"/></br>
+<img src="https://github.com/beetnalhee/mealimeter_shopping_mall/assets/151362604/57117f5a-7658-4c8f-9a0e-3a2f2045dbcd" width="800" height="600"/></br>
 
 </div>
 </details>
